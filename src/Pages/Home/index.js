@@ -7,6 +7,8 @@ import CategoryList from '../../Components/CategoryList';
 import ProductsSession from '../../Components/ProductsSession';
 import Footer from '../../Components/Footer';
 
+import PopUpNotify from '../../Components/PopUpNotify';
+
 export default class Home extends Component {
 
 	constructor(props) {
@@ -21,8 +23,9 @@ export default class Home extends Component {
 	render() {
 		return (
 			<Container>
+				<PopUpNotify/>
+				
 				<Topbar />
-
 				<CategoryList list={this.state.categorys} />
 
 				<ProductsSession/>

@@ -55,7 +55,7 @@ export default class Slider extends Component {
 	
 	  render() {
 		return [
-		  <div className={'test'} key="flickityBase" ref={node => (this.flickityNode = node)} />,
+		  <div style={this.props.style} className={'test'} key="flickityBase" ref={node => (this.flickityNode = node)} />,
 		  this.renderPortal(),
 		].filter(Boolean);
 	  }

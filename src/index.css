@@ -21,3 +21,7 @@ body {
 .regular {
 	font-weight: 400 !important;
 }
+
+.aaaa {
+	opacity: 0.2
+}
