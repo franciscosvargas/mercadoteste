@@ -1,6 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-import { Container, Logo, AppTitle, RightSide, Link, LinkIcon, LinkSpan, LoginSpan, LoginSpanRegular, Menu } from './styles';
+import * as actions from '../../store/actions/popup';
+
+import { 
+	Container,
+	Top,
+	Bottom,
+	Logo, 
+	AppTitle, 
+	RightSide, 
+	Link, 
+	LinkIcon, 
+	LinkSpan, 
+	LoginSpan, 
+	LoginSpanRegular, 
+	Menu,
+	MobileLink
+} from './styles';
 
 import LogoSVG from '../../assets/logo.svg';
 import icADD from '../../assets/ic_add.svg';
@@ -8,35 +26,57 @@ import icBAG from '../../assets/ic_bag.svg';
 import icACC from '../../assets/ic_acc.svg';
 import icMENU from '../../assets/ic_menu.svg';
 
-const TopBar = () => (
-	<Container>
-		<Logo src={LogoSVG}/>
-		<AppTitle>mercadoteste</AppTitle>
+const TopBar = ({popup, popupStatus}) => {
+	const [showMenu, setShowMenu ] = useState(false)
 
-		<RightSide>
-			<Link>
-				<LinkIcon src={icADD}/>
-				<LinkSpan>Produtos</LinkSpan>
-			</Link>
+	return (
+		<Container>
+			<Top>
+				<Logo src={LogoSVG}/>
+				<AppTitle>mercadoteste</AppTitle>
+	
+				<RightSide>
+					<Link>
+						<LinkIcon src={icADD}/>
+						<LinkSpan>Produtos</LinkSpan>
+					</Link>
+	
+					<Link>
+						<LinkIcon src={icBAG}/>
+						<LinkSpan>Carrinho</LinkSpan>
+					</Link>
+	
+					<Link onClick={() => {popupStatus('login')}}>
+						<LinkIcon src={icACC}/>
+						<div>
+							<LoginSpan>Olá! Bem vindo</LoginSpan>
+							<LoginSpanRegular>Acesse sua conta</LoginSpanRegular>
+						</div>
+					</Link>
+	
+					<Menu onClick={() => {setShowMenu(!showMenu)}} src={icMENU}/>
+				</RightSide>
+	
+			</Top>
+			
+			{showMenu && (
+				<Bottom>
+					<MobileLink>Produtos</MobileLink>
+					<MobileLink>Carrinho</MobileLink>
+					<MobileLink>Acesse sua conta</MobileLink>
+				</Bottom>
+			)}
 
-			<Link>
-				<LinkIcon src={icBAG}/>
-				<LinkSpan>Carrinho</LinkSpan>
-			</Link>
+		</Container>
+	);
 
-			<Link>
-				<LinkIcon src={icACC}/>
-				<div>
-					<LoginSpan>Olá! Bem vindo</LoginSpan>
-					<LoginSpanRegular>Acesse sua conta</LoginSpanRegular>
-				</div>
-			</Link>
+}
 
-			<Menu src={icMENU}/>
+const mapStateToProps = state => ({
+	popup: state.popup
+});
 
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(actions, dispatch)
 
-		</RightSide>
-	</Container>
-);
-
-export default TopBar;
+export default connect(mapStateToProps, mapDispatchToProps)(TopBar);

@@ -1,18 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-	height: 80px;
 	background: #0466B9;
-	padding: 0px 130px 0 130px;
+	padding: 20px 130px 20px 130px;
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 
 	@media (max-width: 950px) {
-		padding: 0px 50px 0 50px;
+		padding: 20px 50px 20px 50px;
 	}
 
 	@media (max-width: 350px) {
-		padding: 0px 30px 0 30px;
+		padding: 20px 30px 20px 30px;
 	}
 
 `;
@@ -79,4 +78,24 @@ export const LoginSpanRegular = styled.span`
 	font-size: 16px;
 	font-weight: 400;
 	margin-left: 5px;
+`
+export const Top = styled.div`
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+`
+
+export const Bottom = styled.div`
+	flex-grow: 1;
+	display: flex;
+	margin-top: 20px;
+	flex-direction: column;
+	align-items: flex-end;
+`
+
+export const MobileLink = styled.a`
+	font-size: 20px;
+	font-weight: 500;
+	color: #fff;
+	margin-top: 10px;
 `

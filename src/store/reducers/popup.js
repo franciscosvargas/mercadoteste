@@ -1,10 +1,8 @@
 /* eslint-disable no-unreachable */
 const INITIAL_STATE = {
-	open: true,
+	open: false,
 	name: 'login',
-	info: {
-		text: 'aaaa'
-	}
+	info: {}
 };
 
 // Reducer

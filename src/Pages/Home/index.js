@@ -6,8 +6,7 @@ import Topbar from '../../Components/TopBar';
 import CategoryList from '../../Components/CategoryList';
 import ProductsSession from '../../Components/ProductsSession';
 import Footer from '../../Components/Footer';
-
-import PopUpNotify from '../../Components/PopUpNotify';
+import PopUp from '../../Components/PopUp';
 
 export default class Home extends Component {
 
@@ -18,13 +17,11 @@ export default class Home extends Component {
 			categorys: ['Automotivo', 'Cama', 'Mesa', 'Banho']
 		}
 	}
-	
 
 	render() {
 		return (
 			<Container>
-				<PopUpNotify/>
-				
+				<PopUp/>
 				<Topbar />
 				<CategoryList list={this.state.categorys} />
 
