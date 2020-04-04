@@ -25,3 +25,26 @@ body {
 .aaaa {
 	opacity: 0.2
 }
+
+.login-input {
+	min-width: 400px;
+}
+
+.or {
+	color: #77797B;
+	font-weight: 400;
+	font-size: 18px;
+	margin-top: 20px;
+}
+
+@media (max-width: 500px) {
+	.login-input {
+		min-width: 300px;
+	}
+}
+
+@media (max-width: 400px) {
+	.login-input {
+		min-width: 250px;
+	}
+}

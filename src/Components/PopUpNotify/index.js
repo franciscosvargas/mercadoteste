@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { Container, Content, Button, ButtonClose } from './styles';
+import { Container } from './styles';
 
 import * as actions from '../../store/actions/popup';
 

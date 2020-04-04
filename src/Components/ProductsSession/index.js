@@ -11,6 +11,10 @@ const ProductsSession = () => (
 		<Product />
 		<Product />
 		<Product />
+		<Product />
+		<Product />
+		<Product />
+		<Product />
 		
 		
 	</Container>

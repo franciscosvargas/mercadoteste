@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 const INITIAL_STATE = {
     userId: null, 
     name: null,
