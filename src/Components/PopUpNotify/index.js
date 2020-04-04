@@ -6,27 +6,24 @@ import { Container, Content, Button, ButtonClose } from './styles';
 
 import * as actions from '../../store/actions/popup';
 
-import icClose from '../../assets/ic_cancel.svg';
+import Templates from './templates'
 
-const PopUpNotify = ({popupOpen, popupStatus}) => (
+const PopUpNotify = ({popup, popupStatus}) => {
 
-	<div>
-		{popupOpen ? (
-			<Container>
-				<Content>
-					<ButtonClose onClick={popupStatus}src={icClose}/>
-					<p>Novo sabor café torresmo seco</p>
-					<Button>VER AGORA</Button>
-				
-				</Content>
-			</Container>
-
-		) : null }
-	</div>
-);
+	const PopUp = Templates(popup.name)
+	return (
+		<div>
+			{popup.open ? (
+				<Container>
+					<PopUp info={popup.info} close={popupStatus}/>
+				</Container>
+			) : null }
+		</div>
+	)
+};
 
 const mapStateToProps = state => ({
-	popupOpen: state.popup.open
+	popup: state.popup
 });
 
 const mapDispatchToProps = dispatch =>

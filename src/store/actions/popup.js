@@ -1,5 +1,8 @@
   
-export const popupStatus = () => ({
+export const popupStatus = ({name, information}) => ({
     type: 'POPUP_STATUS',
-    payload: {}
+    payload: {
+		name,
+		information
+	}
 })
