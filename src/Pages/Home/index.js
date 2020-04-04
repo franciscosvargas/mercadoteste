@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import * as actions from '../../store/actions/products';
 
 import { Container } from './styles';
 
@@ -8,14 +12,27 @@ import ProductsSession from '../../Components/ProductsSession';
 import Footer from '../../Components/Footer';
 import PopUp from '../../Components/PopUp';
 
-export default class Home extends Component {
+import api from '../../services/api';
+
+class Home extends Component {
 
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			categorys: ['Automotivo', 'Cama', 'Mesa', 'Banho']
+			categories: ['TODOS']
 		}
+	}
+
+	componentDidMount = async () => {
+		const { data } = await api.get('/home')
+
+		this.setState({
+			categories: [...this.state.categories, ...data.categories],
+		})
+
+		this.props.refreshProductList(data.products)
+
 	}
 
 	render() {
@@ -23,7 +40,7 @@ export default class Home extends Component {
 			<Container>
 				<PopUp/>
 				<Topbar />
-				<CategoryList list={this.state.categorys} />
+				<CategoryList list={this.state.categories} />
 
 				<ProductsSession/>
 
@@ -34,3 +51,11 @@ export default class Home extends Component {
 	}
 }
 
+const mapStateToProps = state => ({
+	popup: state.popup
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(actions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

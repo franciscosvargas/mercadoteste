@@ -8,9 +8,11 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import  Store  from './store';
 
+import Routes from './routes'
+
 ReactDOM.render(
 	<Provider store={Store}>
-    	<App />
+		<Routes />
 	</Provider>,
   document.getElementById('root')
 );

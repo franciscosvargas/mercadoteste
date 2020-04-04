@@ -1,23 +1,21 @@
 import React from 'react';
+import { connect } from "react-redux";
 
 import { Container} from './styles';
 
 import Product from '../Product'
 
-const ProductsSession = () => (
+const ProductsSession = ({list}) => (
 	<Container>
 
-		<Product />
-		<Product />
-		<Product />
-		<Product />
-		<Product />
-		<Product />
-		<Product />
-		<Product />
-		
+		{list.map((info, index) => <Product key={index} info={info}/>)}
 		
 	</Container>
 );
 
-export default ProductsSession;
+const mapStateToProps = state => ({
+	list: state.products
+});
+
+export default connect(mapStateToProps)(ProductsSession)
+

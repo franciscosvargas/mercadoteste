@@ -12,6 +12,7 @@ export const Container = styled.div`
 export const Name = styled.span`
 	color: #383D40;
 	font-size: 18px;
+	height: 44px;
 `
 
 export const Image = styled.img`

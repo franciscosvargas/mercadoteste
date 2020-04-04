@@ -19,8 +19,8 @@ export const Container = styled.div`
 `;
 
 export const Category = styled.a`
-	background: #F1F1F1;
-	color: #77797B;
+	background: ${props => props.color};
+	color: ${props => props.txtcolor ||'#77797B' };
 	font-size: 16px;
 	border-radius: 6px;
 	display: flex;
