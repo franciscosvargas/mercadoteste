@@ -4,5 +4,3 @@ export const Container = styled.div`
 	min-height: 100% !important;
 	width: 100%;
 `;
-
-

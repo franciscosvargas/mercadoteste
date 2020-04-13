@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-	margin-top: 75px;
+	bottom: 0;
+	margin-top: 120px;
+	width: 100%;
 	border-top: 1px solid #77797B;
-	padding: 35px 130px 30px 130px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
@@ -13,14 +16,16 @@ export const Container = styled.div`
 		justify-content: center;
 	}
 
-	@media (max-width: 950px) {
-		padding: 35px 50px 0 50px;
-		justify-content: center;
+	@media (max-width: 560px) {
+		margin-top: 50px;
+		position: relative;
 	}
 
-	@media (max-width: 350px) {
-		padding: 35px 30px 0 30px;
+	@media (max-width: 700px) {
+		padding-top: 20px;
 	}
+
+	
 `;
 
 export const AppTitle = styled.span`
@@ -34,18 +39,24 @@ export const AppTitle = styled.span`
 export const LastUpdate = styled.span`
 	color: #77797B;
 	font-size: 16px;
-	margin-top: 10px;
-
-
 `
 
 export const Side = styled.div`
+	flex-grow: 1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
 	margin-top: 20px;
 	padding-bottom: 20px;
+
+	@media (max-width: 460px) {
+		margin: 10px 0 0 0;
+	}
+
+	@media (max-width: 800px) {
+		margin: 10px 0 0 0;
+	}
 `
 
 export const Link = styled.a`

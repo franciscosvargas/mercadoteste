@@ -16,3 +16,8 @@ export const Container = styled.div`
 		margin: 30px 25px 0 25px;
 	}
 `;
+
+export const Alert = styled.h2`
+	margin: 85px 70px 85px 70px;
+	opacity: 0.6;
+`

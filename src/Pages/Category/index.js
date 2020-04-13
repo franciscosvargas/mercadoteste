@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { useParams } from 'react-router-dom';
 
 import * as actions from '../../store/actions/products';
 
@@ -14,13 +15,13 @@ import PopUp from '../../Components/PopUp';
 
 import api from '../../services/api';
 
-class Home extends Component {
+class Category extends Component {
  	componentDidMount = async () => {
-		const { data } = await api.get('/home')
+		const { name } = this.props.match.params
+		const { data } = await api.get(`/category/${name}`)
 
-		this.props.setUserName('alisson')
-		this.props.refreshCategoryList(data.categories)
-		this.props.refreshProductList(data.products)
+		this.props.refreshProductList(data)
+
 	}
 
 	render() {
@@ -29,6 +30,7 @@ class Home extends Component {
 				<PopUp/>
 				<SideMenu history={this.props.history} />
 				<Topbar />
+
 				<ProductsSession history={this.props.history}/>
 				<Footer />
 			</Container>
@@ -44,4 +46,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(actions, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Category);

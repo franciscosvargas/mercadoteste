@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
 	background: #0466B9;
@@ -34,7 +35,7 @@ export const RightSide = styled.div`
 	align-items: center;
 `
 
-export const Link = styled.a`
+export const LinkContainer = styled(Link)`
 	display: flex;
 	align-items: center;
 	margin-left: 40px;
@@ -67,7 +68,7 @@ export const LinkSpan = styled.span`
 
 export const LoginSpan = styled.span`
 	color: #FFFFFF;
-	font-size: 14px;
+	font-size: 20px;
 	font-weight: 300;
 	display: flex;
 	margin-left: 5px;

@@ -13,6 +13,7 @@ html {
 }
 
 body {
+	height: 100%;
 	width: 100%;
 	background: #F1F1F1;
 	font-family: 'Roboto', sans-serif;
@@ -37,6 +38,7 @@ body {
 	margin-top: 20px;
 }
 
+
 @media (max-width: 500px) {
 	.login-input {
 		min-width: 300px;
@@ -47,4 +49,38 @@ body {
 	.login-input {
 		min-width: 250px;
 	}
+}
+
+.bg-enter {
+	opacity: 0;
+}
+.bg-enter-active {
+	left: 1;
+	transition: opacity 300ms;
+}
+
+.bg-exit {
+	left: 1;
+}
+  
+.bg-exit-active {
+	opacity: 0;
+	transition: opacity 300ms;
+}
+
+.my-node-enter {
+	left: -30%;
+}
+.my-node-enter-active {
+	left: 0;
+	transition: left 300ms;
+}
+
+.my-node-exit {
+	left: 0;
+}
+  
+.my-node-exit-active {
+	left: -30%;
+	transition: left 300ms;
 }

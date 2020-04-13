@@ -6,3 +6,8 @@ export const popupStatus = ({name, information}) => ({
 		information
 	}
 })
+
+export const menuStatus = () => ({
+    type: 'MENU_STATUS',
+
+})

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.a`
 	width: 230px;
 	display: flex;
 	flex-direction: column;
@@ -13,6 +13,7 @@ export const Name = styled.span`
 	color: #383D40;
 	font-size: 18px;
 	height: 44px;
+	align-self: flex-start;
 `
 
 export const Image = styled.img`

@@ -11,7 +11,7 @@ import {
 	Logo, 
 	AppTitle, 
 	RightSide, 
-	Link, 
+	LinkContainer,
 	LinkIcon, 
 	LinkSpan, 
 	LoginSpan, 
@@ -22,38 +22,34 @@ import {
 
 import LogoSVG from '../../assets/logo.svg';
 import icADD from '../../assets/ic_add.svg';
-import icBAG from '../../assets/ic_bag.svg';
-import icACC from '../../assets/ic_acc.svg';
+import icBAG from '../../assets/ic_cart.svg';
+import icACC from '../../assets/ic_arrow.svg';
 import icMENU from '../../assets/ic_menu.svg';
 
-const TopBar = ({popup, popupStatus}) => {
+const TopBar = ({popup, popupStatus, login, history, menuStatus}) => {
 	const [showMenu, setShowMenu ] = useState(false)
-
+	
 	return (
 		<Container>
 			<Top>
+				{console.log(history)}
 				<Logo src={LogoSVG}/>
 				<AppTitle>mercadoteste</AppTitle>
+
+				<LinkContainer onClick={menuStatus}>
+						<LinkIcon style={{width: 30, height: 20}}src={icMENU}/>
+				</LinkContainer>
 	
 				<RightSide>
-					<Link>
-						<LinkIcon src={icADD}/>
-						<LinkSpan>Produtos</LinkSpan>
-					</Link>
-	
-					<Link>
+					<LinkContainer onClick={() => {popupStatus('login')}}>
+						<LinkSpan>Entrar</LinkSpan>
+						<LinkIcon style={{marginLeft: 9}} src={icACC}/>
+					</LinkContainer>
+
+					<LinkContainer>
 						<LinkIcon src={icBAG}/>
-						<LinkSpan>Carrinho</LinkSpan>
-					</Link>
-	
-					<Link onClick={() => {popupStatus('login')}}>
-						<LinkIcon src={icACC}/>
-						<div>
-							<LoginSpan>Olá! Bem vindo</LoginSpan>
-							<LoginSpanRegular>Acesse sua conta</LoginSpanRegular>
-						</div>
-					</Link>
-	
+					</LinkContainer>
+
 					<Menu onClick={() => {setShowMenu(!showMenu)}} src={icMENU}/>
 				</RightSide>
 	
@@ -61,7 +57,7 @@ const TopBar = ({popup, popupStatus}) => {
 			
 			{showMenu && (
 				<Bottom>
-					<MobileLink>Produtos</MobileLink>
+					<MobileLink onClick={menuStatus}>Categorias</MobileLink>
 					<MobileLink>Carrinho</MobileLink>
 					<MobileLink>Acesse sua conta</MobileLink>
 				</Bottom>
@@ -73,7 +69,8 @@ const TopBar = ({popup, popupStatus}) => {
 }
 
 const mapStateToProps = state => ({
-	popup: state.popup
+	popup: state.popup,
+	login: state.login.name
 });
 
 const mapDispatchToProps = dispatch =>

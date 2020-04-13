@@ -1,13 +1,20 @@
   
 import React from 'react';
-import { HashRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Home from './Pages/Home';
+import Category from './Pages/Category'
+import ProductDetails from './Pages/ProductDetails';
 
 const Routes = () => (
-    <HashRouter>
-        <Route exact path="/" component={Home}/>
-    </HashRouter>
+    <BrowserRouter >
+		<Switch>
+			<Route exact path="/" component={Home}/>
+			<Route path="/product" component={ProductDetails}/>
+			<Route path="/category/:name" component={Category}/>
+		</Switch>
+			
+    </BrowserRouter>
 );
 
 export default Routes
