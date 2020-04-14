@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom'
+
 export const Container = styled.a`
 	width: 230px;
 	display: flex;
@@ -9,7 +11,7 @@ export const Container = styled.a`
 	flex-grow: 1;
 `;
 
-export const Name = styled.span`
+export const Name = styled(Link)`
 	color: #383D40;
 	font-size: 18px;
 	height: 44px;

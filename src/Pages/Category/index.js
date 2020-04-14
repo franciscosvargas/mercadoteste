@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 import * as actions from '../../store/actions/products';
 
-import { Container } from './styles';
+import { Container, Name } from './styles';
 
 import Topbar from '../../Components/TopBar';
 import SideMenu from '../../Components/SideMenu';
@@ -21,16 +21,17 @@ class Category extends Component {
 		const { data } = await api.get(`/category/${name}`)
 
 		this.props.refreshProductList(data)
-
 	}
 
 	render() {
 		return (
 			<Container>
+
 				<PopUp/>
 				<SideMenu history={this.props.history} />
 				<Topbar />
 
+				<Name>{this.props.match.params.name}</Name>
 				<ProductsSession history={this.props.history}/>
 				<Footer />
 			</Container>

@@ -4,7 +4,7 @@ export const Container = styled.div`
 	background: #FFFFFF;
 	box-shadow: 0px 3px 6px #00000029;
 	border-radius: 6px;
-	margin: 30px 125px 0px 125px;
+	margin: 30px 125px 90px 125px;
 	display: flex;
 	flex-wrap: wrap;
 

@@ -57,7 +57,6 @@ function SideMenu({categories, open, menuStatus, history }) {
 	);
 }
 
-
 const mapStateToProps = state => ({
 	categories: state.products.categories,
 	open: state.popup.menu

@@ -2,11 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 	bottom: 0;
-	margin-top: 120px;
-	width: 100%;
+	width: (100% - 260px);
 	border-top: 1px solid #77797B;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding: 30px 130px 30px 130px;
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
