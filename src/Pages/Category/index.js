@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, {useEffect} from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { useParams } from 'react-router-dom';
@@ -15,28 +16,32 @@ import PopUp from '../../Components/PopUp';
 
 import api from '../../services/api';
 
-class Category extends Component {
- 	componentDidMount = async () => {
-		const { name } = this.props.match.params
+function Category({refreshProductList, history}) {
+
+	const { name } = useParams()
+
+	useEffect(() => {
+		getProductList()
+	},[name])
+
+	const getProductList = async () => {
 		const { data } = await api.get(`/category/${name}`)
+		refreshProductList(data)
+	} 
 
-		this.props.refreshProductList(data)
-	}
+	return (
+		<Container>
 
-	render() {
-		return (
-			<Container>
+			<PopUp/>
+			<SideMenu history={history} />
+			<Topbar />
 
-				<PopUp/>
-				<SideMenu history={this.props.history} />
-				<Topbar />
-
-				<Name>{this.props.match.params.name}</Name>
-				<ProductsSession history={this.props.history}/>
-				<Footer />
-			</Container>
-		);
-	}
+			<Name>{name}</Name>
+			<ProductsSession history={history}/>
+			<Footer />
+		</Container>
+	);
+	
 }
 
 const mapStateToProps = state => ({

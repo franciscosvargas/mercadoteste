@@ -10,7 +10,7 @@ const ProductsSession = ({list, history}) => (
 
 		{list.map((info, index) => <Product history={history} key={index} info={info}/>)}
 
-		{!list[0] && <Alert>Ooops, não encontramos produtos para essa categoria.</Alert>}
+		{!list[0] && <Alert>Ooops, não encontramos produtos...</Alert>}
 		
 	</Container>
 );

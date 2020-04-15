@@ -1,9 +1,6 @@
 import React from 'react';
 
-import { Container, AppTitle, LastUpdate, Side, Link, Icon } from './styles';
-
-import icWhats from '../../assets/ic_whats.svg'
-import icInfo from '../../assets/ic_info.svg'
+import { Container, AppTitle, LastUpdate } from './styles';
 
 const Footer = () => (
 	<Container>

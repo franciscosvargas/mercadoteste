@@ -10,12 +10,14 @@ import Templates from './templates'
 
 const PopUpNotify = ({popup, popupStatus}) => {
 
-	const PopUp = Templates(popup.name)
+	
+	const PopUp = Templates(popup.popup.name)
+	
 	return (
 		<div>
-			{popup.open ? (
+			{popup.popup.open ? (
 				<Container>
-					<PopUp info={popup.info} close={popupStatus}/>
+					<PopUp info={popup.popup.info} close={popupStatus}/>
 				</Container>
 			) : null }
 		</div>

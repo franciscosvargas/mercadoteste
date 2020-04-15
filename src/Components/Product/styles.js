@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom'
 
-export const Container = styled.a`
+export const Container = styled.div`
 	width: 230px;
 	display: flex;
 	flex-direction: column;
@@ -20,8 +20,8 @@ export const Name = styled(Link)`
 
 export const Image = styled.img`
 	margin-top: 18px;
-	width: 134px;
-	height: 134px;
+	max-width: 80%;
+	height: 200px;
 `
 
 export const Price = styled.span`
@@ -34,7 +34,7 @@ export const Price = styled.span`
 
 export const Button = styled.span`
 	width: 100%;
-	background: #0466B9;
+	background: ${props => props.bg};
 	height: 32px;
 	color: #FFFFFF;
 	font-size: 16px;

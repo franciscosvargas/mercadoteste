@@ -14,14 +14,11 @@ import {
 	LinkContainer,
 	LinkIcon, 
 	LinkSpan, 
-	LoginSpan, 
-	LoginSpanRegular, 
 	Menu,
 	MobileLink
 } from './styles';
 
 import LogoSVG from '../../assets/logo.svg';
-import icADD from '../../assets/ic_add.svg';
 import icBAG from '../../assets/ic_cart.svg';
 import icACC from '../../assets/ic_arrow.svg';
 import icMENU from '../../assets/ic_menu.svg';
@@ -32,7 +29,6 @@ const TopBar = ({popup, popupStatus, login, history, menuStatus}) => {
 	return (
 		<Container>
 			<Top>
-				{console.log(history)}
 				<Logo src={LogoSVG}/>
 				<AppTitle>mercadoteste</AppTitle>
 
@@ -41,12 +37,12 @@ const TopBar = ({popup, popupStatus, login, history, menuStatus}) => {
 				</LinkContainer>
 	
 				<RightSide>
-					<LinkContainer onClick={() => {popupStatus('login')}}>
+					<LinkContainer onClick={() => {popupStatus({name: 'login'})}}>
 						<LinkSpan>Entrar</LinkSpan>
 						<LinkIcon style={{marginLeft: 9}} src={icACC}/>
 					</LinkContainer>
 
-					<LinkContainer>
+					<LinkContainer to="/cart">
 						<LinkIcon src={icBAG}/>
 					</LinkContainer>
 

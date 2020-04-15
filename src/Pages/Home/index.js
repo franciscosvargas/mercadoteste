@@ -6,11 +6,11 @@ import * as actions from '../../store/actions/products';
 
 import { Container } from './styles';
 
-import Topbar from '../../Components/TopBar';
-import SideMenu from '../../Components/SideMenu';
+import Top from '../../Components/Top';
 import ProductsSession from '../../Components/ProductsSession';
 import Footer from '../../Components/Footer';
 import PopUp from '../../Components/PopUp';
+
 
 import api from '../../services/api';
 
@@ -26,9 +26,8 @@ class Home extends Component {
 	render() {
 		return (
 			<Container>
-				<PopUp/>
-				<SideMenu history={this.props.history} />
-				<Topbar />
+				<PopUp />
+				<Top history={this.props.history} />
 				<ProductsSession history={this.props.history}/>
 				<Footer />
 			</Container>

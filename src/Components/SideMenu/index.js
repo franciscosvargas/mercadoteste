@@ -10,7 +10,6 @@ import { Container, Menu, Icon, Title, List, Category, Footer, Whatsapp } from '
 import icClose from '../../assets/ic_close.svg'
 import icWhats from '../../assets/ic_whats_blue.svg'
 
-import api from '../../services/api'
 
 function SideMenu({categories, open, menuStatus, history }) {
   

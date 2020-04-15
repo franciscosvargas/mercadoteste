@@ -46,7 +46,7 @@ export const Name = styled.span`
 export const Horizontal = styled.div`
 	margin-top: auto;
 	display: flex;
-	alig-items: center;
+	align-items: center;
 `
 
 export const Price = styled.span`
@@ -58,7 +58,7 @@ export const Price = styled.span`
 
 export const Button = styled.button`
 	width: 100%;
-	height: 52px;
+	height: 32px;
 	color: #fff;
 	border-radius: 6px;
 	font-size: 18px;
@@ -92,5 +92,5 @@ export const SpanQnt = styled.span`
 	padding: 2px 5px 0px 5px;
 	border: 1px solid rgba(0,0,0,0.2);
 	border-radius: 6px;
-
 `
+

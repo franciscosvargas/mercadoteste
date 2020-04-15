@@ -40,8 +40,8 @@ function ProductDetails({history, addToCart, removeFromCart, cart}) {
 
 	const removeAndRefresh = () => {
 		if(qnt > 0) {
-			setQnt(qnt-1)
 			removeFromCart(product, qnt)
+			setQnt(qnt-1)
 		}
 	}
 
