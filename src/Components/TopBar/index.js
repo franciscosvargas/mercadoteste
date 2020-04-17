@@ -54,7 +54,7 @@ const TopBar = ({popup, popupStatus, login, history, menuStatus}) => {
 					) : (
 
 						<div style={{display: 'flex'}}>
-							<LinkContainer onClick={openDialog}>
+							<LinkContainer onClick={() => {popupStatus({name: 'editData'})}}>
 								<LinkSpan>Meus Dados</LinkSpan>
 							</LinkContainer>
 
@@ -92,7 +92,7 @@ const TopBar = ({popup, popupStatus, login, history, menuStatus}) => {
 
 const mapStateToProps = state => ({
 	popup: state.popup,
-	login: state.login.name
+	login: state.login.user.name
 });
 
 const mapDispatchToProps = dispatch =>

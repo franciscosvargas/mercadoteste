@@ -1,7 +1,6 @@
 /* eslint-disable no-unreachable */
 const INITIAL_STATE = {
-    id: null, 
-    name: null,
+    user: {},
     token: null, 
 };
 
@@ -9,7 +8,7 @@ const INITIAL_STATE = {
 export default function login(state = INITIAL_STATE, action) {
     switch (action.type) {
         case 'LOGIN_SUCCESS':
-            return { ...state, id: action.payload.id, name: action.payload.name, token: action.payload.token };
+            return { ...state, user: action.payload.user, token: action.payload.token  };
             break;
         case 'LOGIN_FAILURE':
             return { ...state, error: true}
@@ -17,9 +16,9 @@ export default function login(state = INITIAL_STATE, action) {
         case 'LOGOUT':
 			return { ...state }
 
-		case 'SET_USERNAME':
+		case 'UPDATE_USER':
 			return {
-				...state, name: action.payload.name
+				...state, user: action.payload.user
 			}
 			
         default:

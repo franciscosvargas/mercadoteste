@@ -1,10 +1,16 @@
 export const loginSuccess = ({user, token}) => ({
     type: 'LOGIN_SUCCESS',
     payload: {
-		name: user.name,
-		id: user.id,
-		token: token
+		user,
+		token,
 
+	}
+})
+
+export const updateUser = (user) => ({
+    type: 'UPDATE_USER',
+    payload: {
+		user,
 	}
 })
 

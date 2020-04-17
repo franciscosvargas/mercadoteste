@@ -8,6 +8,7 @@ export const Container = styled.div`
 	justify-content: center;
 	position: fixed !important;
 	background: rgba(0,0,0,0.7);
+	overflow: hidden;
 `;
 
 

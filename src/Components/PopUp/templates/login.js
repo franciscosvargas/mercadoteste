@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -21,6 +21,7 @@ import api from '../../../services/api'
 
 const Login = ({info, close, loginSuccess, popupStatus}) => {
 	const [error, setError] = useState(false)
+	const ref = useRef(null)
 
 	const signin = async (info) => {
 		const { data } = await api.post('/auth', info)

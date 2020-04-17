@@ -10,6 +10,8 @@ export const Container = styled.div`
 	border-radius: 6px;
 	font-size: 28px;
 	color: #0466B9;
+	max-height: 80%;
+
 
 	@media (max-width: 660px) {
 		font-size: 22px;
@@ -72,7 +74,8 @@ export const TextButton = styled.span`
 `
 
 export const FormButton = styled.button`
-	height: 52px;
+	height: 52px !important;
+	padding: 15px;
 	width: 100%;
 	border-radius: 6px;
 	background: ${props => props.bg};

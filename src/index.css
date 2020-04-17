@@ -89,3 +89,32 @@ body {
 	left: -30%;
 	transition: left 300ms;
 }
+
+.form {
+	display: flex; 
+	flex-direction: column;
+	overflow-y: auto;
+	margin-top: 10px;
+	padding: 0px 10px 20px 0px;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+	width: 5px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgba(4, 102, 185, 0.6);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(4, 102, 185, 1)
+}

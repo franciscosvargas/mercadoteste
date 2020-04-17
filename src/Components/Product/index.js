@@ -15,7 +15,6 @@ const Product = ({info, cart, addToCart, removeFromCart}) => {
 
 	const getProductData = async () => {
 		const filter = cart.filter(element => element.id === info.id)
-		console.log(filter)
 		if(filter[0] && filter[0].qnt > 0) setQnt(filter[0].qnt)
 	}
 
