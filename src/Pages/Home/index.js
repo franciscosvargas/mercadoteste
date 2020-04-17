@@ -18,7 +18,6 @@ class Home extends Component {
  	componentDidMount = async () => {
 		const { data } = await api.get('/home')
 
-		this.props.setUserName('alisson')
 		this.props.refreshCategoryList(data.categories)
 		this.props.refreshProductList(data.products)
 	}

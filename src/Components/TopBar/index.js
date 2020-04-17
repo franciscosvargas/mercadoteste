@@ -26,6 +26,14 @@ import icMENU from '../../assets/ic_menu.svg';
 const TopBar = ({popup, popupStatus, login, history, menuStatus}) => {
 	const [showMenu, setShowMenu ] = useState(false)
 	
+	const openDialog = () => {
+		if(!login) {
+			popupStatus({name: 'login'})
+		} else {
+		}
+	}
+
+
 	return (
 		<Container>
 			<Top>
@@ -33,20 +41,38 @@ const TopBar = ({popup, popupStatus, login, history, menuStatus}) => {
 				<AppTitle>mercadoteste</AppTitle>
 
 				<LinkContainer onClick={menuStatus}>
-						<LinkIcon style={{width: 30, height: 20}}src={icMENU}/>
+					<LinkIcon style={{width: 30, height: 20}}src={icMENU}/>
 				</LinkContainer>
+				
 	
 				<RightSide>
-					<LinkContainer onClick={() => {popupStatus({name: 'login'})}}>
-						<LinkSpan>Entrar</LinkSpan>
-						<LinkIcon style={{marginLeft: 9}} src={icACC}/>
-					</LinkContainer>
+					{!login ? (
+						<LinkContainer onClick={openDialog}>
+							<LinkSpan>Entrar</LinkSpan>
+							<LinkIcon style={{marginLeft: 9}} src={icACC}/>
+						</LinkContainer>
+					) : (
+
+						<div style={{display: 'flex'}}>
+							<LinkContainer onClick={openDialog}>
+								<LinkSpan>Meus Dados</LinkSpan>
+							</LinkContainer>
+
+							<LinkContainer onClick={openDialog}>
+								<LinkSpan>Meus Pedidos</LinkSpan>
+							</LinkContainer>
+						</div>
+						
+					)}
+					
 
 					<LinkContainer to="/cart">
 						<LinkIcon src={icBAG}/>
 					</LinkContainer>
 
 					<Menu onClick={() => {setShowMenu(!showMenu)}} src={icMENU}/>
+
+					
 				</RightSide>
 	
 			</Top>

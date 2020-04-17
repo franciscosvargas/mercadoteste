@@ -56,11 +56,12 @@ body {
 }
 
 .bg-enter {
-	opacity: 0;
+	left: 0;
 }
+
 .bg-enter-active {
 	left: 1;
-	transition: opacity 300ms;
+	transition: left 300ms;
 }
 
 .bg-exit {
@@ -69,7 +70,7 @@ body {
   
 .bg-exit-active {
 	opacity: 0;
-	transition: opacity 300ms;
+	transition: left 300ms;
 }
 
 .my-node-enter {

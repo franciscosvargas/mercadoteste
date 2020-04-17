@@ -58,7 +58,7 @@ export const Price = styled.span`
 
 export const Button = styled.button`
 	width: 100%;
-	height: 32px;
+	height: 52px;
 	color: #fff;
 	border-radius: 6px;
 	font-size: 18px;

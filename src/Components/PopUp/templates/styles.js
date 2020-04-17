@@ -41,6 +41,13 @@ export const Title = styled.span`
 	align-self: start;
 `
 
+export const Error = styled.span`
+	font-weight: 300;
+	color: #F63E3E;
+	font-sizE: 18px;
+	margin-top: 10px;
+`
+
 export const Input = styled.input`
 	padding: 16px 13px 5px 13px;
 	color: rgba(48, 50, 51, 0.8);

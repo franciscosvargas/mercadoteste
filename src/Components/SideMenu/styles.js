@@ -5,12 +5,11 @@ export const Container = styled.div`
 	width: 130%;
 	height: 100%;
 	display: flex;
+	flex-direction: row;
 	position: fixed !important;
 	background: rgba(0,0,0,0.7);
 	overflow: hidden;
 `
-	
-
 export const Menu = styled.div`
 	width: 20%;
 	padding: 30px;
@@ -18,7 +17,7 @@ export const Menu = styled.div`
 	display: flex;
 	flex-direction: column;
 	font-size: 28px;
-
+	
 	@media (max-width: 700px) {
 		width: 35%;
 	}

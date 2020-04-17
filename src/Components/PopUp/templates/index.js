@@ -3,7 +3,7 @@ import login from './login'
 
 const Templates = {
 	notify,
-	login
+	login, 
 }
 
 export default function getTemplate(name) {
