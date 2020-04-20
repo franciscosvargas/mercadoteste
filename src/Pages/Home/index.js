@@ -25,9 +25,10 @@ class Home extends Component {
 	render() {
 		return (
 			<Container>
-				<PopUp />
 				<Top history={this.props.history} />
+
 				<ProductsSession history={this.props.history}/>
+				
 				<Footer />
 			</Container>
 		);

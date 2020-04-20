@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Form } from "@unform/web";
 
 import * as actions from '../../store/actions/cart';
 
@@ -18,15 +19,32 @@ import {
 	Name, 
 	Product, 
 	Alert,
+	Section,
 	SectionTitle,
 	Span, 
-	Button
+	Button, 
+	ButtonOutlined,
+	Address,
+	AddressSpan
 } from './styles';
 
 import Top from '../../Components/Top';
+import Footer from '../../Components/Footer';
+import Slider from '../../Components/Slider';
+import Input from '../../Components/Input';
 
-function Cart({history, cart, removeFromCart}) {
+import icPlay from '../../assets/ic_play.png'
+
+import api from '../../services/api'
+
+function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, logout}) {
 	const [price, setPrice] = useState(0)
+	const [finish, setFinish] = useState(false)
+	const [addresses, setAddresses] = useState(false)
+	const [paymentMethod, setPaymentMethod] = useState({card: false, boleto: false, selected: false})
+	const [addressSelected, setAddressSelected ] = useState(false)
+	const [newAddress, setNewAddress] = useState(false)
+	const [getOnStore, setGetOnStore] = useState(false)
 
 	useEffect(() => {
 		let value = 0
@@ -35,7 +53,69 @@ function Cart({history, cart, removeFromCart}) {
 			
 		})
 		setPrice(value)
-	}, [cart])
+	}, [cart, addresses])
+
+	const run = async () => {
+		if(!login.cpf) return popupStatus({name: 'login'})
+
+		setFinish(true)
+
+		const {data} = await api.get(`/l/addresses/${login.cpf}`)
+
+		if(data.error) {
+			logout()
+			return popupStatus({name: 'login'})
+		}
+		
+		data.push({address: login.address})
+		setAddresses(data)
+	}
+
+	const selectPayMethod = (method) => {
+		if(method === 'card') {
+			setPaymentMethod({card: true, boleto: false, selected: true})
+		} else {
+			setPaymentMethod({card: false, boleto: true, selected: true})
+		}
+	}
+
+	const addAddress = async (address) => {
+		await api.post('/l/addresses', {cpf: login.cpf, address})
+		
+		run()
+		setAddressSelected(null)
+		setNewAddress(false)
+	}
+
+	const isSelected = (index) => {
+		if(addressSelected === (index + 1)) return true
+
+		return false
+	}
+
+	const createOrderFromAddress = async() => {
+		const address = addresses[addressSelected - 1]
+
+		let methodToExclude = ''
+
+		if(!paymentMethod.boleto) {
+			methodToExclude = 'BOLETO'
+		} else {
+			methodToExclude = 'CREDIT_CARD'
+		}
+
+		const {data} = await api.post('/l/order', 
+			{
+				cpf: login.cpf, 
+				delivery: { methodToExclude, address: address.address },
+				cart
+			}
+		)
+
+		clearCart()
+
+		window.location = `https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=${data.code}`
+	}
 
 	return (
 		<Container>
@@ -43,6 +123,8 @@ function Cart({history, cart, removeFromCart}) {
 
 				{cart.length ? (
 					<Content>
+
+						{/* List of products in cart */}
 						<Box>
 							<List>
 								<tbody>
@@ -71,13 +153,198 @@ function Cart({history, cart, removeFromCart}) {
 							</List>
 						</Box>
 
+						{/* Total price and payment methods */}
 						<Box>
-							<SectionTitle>Custo da compra</SectionTitle>
-							<Span>*Taxas se aplicam de acordo com o método de pagamento</Span>		
-							<SectionTitle>R$ {price.toFixed(2)}</SectionTitle>				
+							{/* Total price */}
+							<Section>
+								<SectionTitle>Custo da compra</SectionTitle>
+								<Span>*Taxas se aplicam de acordo com o método de pagamento</Span>		
+								<SectionTitle>R$ {price.toFixed(2)}</SectionTitle>	
+							</Section>
+								
+							{/* Payment Methods */}
+							{finish && (
+								<div style={{display: 'flex'}}>
+									{/* Site payment methods */}
+									<Section style={{marginLeft: 20}}>
+										<SectionTitle>Forma de Pagamento</SectionTitle>
+										<div>
+
+											<ButtonOutlined 
+												onClick={() => {selectPayMethod('card')}}
+												className={paymentMethod.card && 'selected'}>
+													Cartão de Crédito
+											</ButtonOutlined>
+										</div>
+									</Section>	
+
+									{/* App payment methods */}
+									<Section style={{marginLeft: 20, border: 'none'}}>
+										<Span className="marginBottomSpan">Escolha outras formas de</Span>
+										<Span className="marginTopSpan">pagamento em nosso app.</Span>
+										<img width="167px" src={icPlay}/>
+									</Section>
+								</div>
+							)}
 						</Box>
 
-						<Button bg="#00B755">Executar compra</Button>
+						{!finish ? (
+							<Button onClick={run} bg="#00B755">Executar compra</Button>
+						) : null }
+
+						
+						{paymentMethod.selected && (
+							<div>
+								{!getOnStore && (
+									<Box>
+										<Section style={{border: 0}}>
+											<SectionTitle>Defina um endereço para entrega</SectionTitle>
+											<div className="addresses">
+												
+													{addresses.map(({address}, index) => (
+														isSelected(index) ? (
+															<Address className="selected" onClick={() => setAddressSelected(index + 1)}>
+																<AddressSpan className="selected">Endereço: {address.full}</AddressSpan>
+																<AddressSpan className="selected">Número: {address.number}</AddressSpan>
+																<AddressSpan className="selected">Bairro: {address.bairro}</AddressSpan>
+																<AddressSpan className="selected">Cidade: {address.city}</AddressSpan>
+																<AddressSpan className="selected">Estado: {address.uf}</AddressSpan>
+																<AddressSpan className="selected">CEP: {address.cep}</AddressSpan>
+															</Address>
+														) : (
+															<Address onClick={() => setAddressSelected(index + 1)}>
+																<AddressSpan>Endereço: {address.full}</AddressSpan>
+																<AddressSpan>Número: {address.number}</AddressSpan>
+																<AddressSpan>Bairro: {address.bairro}</AddressSpan>
+																<AddressSpan>Cidade: {address.city}</AddressSpan>
+																<AddressSpan>Estado: {address.uf}</AddressSpan>
+																<AddressSpan>CEP: {address.cep}</AddressSpan>
+															</Address>
+														)
+														
+													))}
+
+											</div>
+										</Section>
+									</Box>
+								)}
+
+								{newAddress && (
+									<Box>
+										<Section>
+											<SectionTitle>Novo Endereço</SectionTitle>
+											<Form onSubmit={addAddress} style={{flexWrap: 'wrap', display: 'flex'}}>
+												<Input 
+													name="full"
+													placeholder="Endereço*" 
+													type="text" 
+													className="address-input max-width"/>
+
+												<Input 
+													name="number"
+													placeholder="Número*" 
+													type="text" 
+													style={{width: '15%'}}
+													className="address-input"
+													required/>
+
+												<Input 
+													name="bairro"
+													placeholder="Bairro*" 
+													type="text" 
+													className="address-input"
+													style={{width: '44%'}}
+													required/>
+
+												
+
+												<Input 
+													name="city"
+													placeholder="Cidade*" 
+													type="text" 
+													className="address-input"
+													required/>
+
+												<Input 
+													name="uf"
+													placeholder="Estado*" 
+													type="text" 
+													className="address-input"
+													required/>
+
+												<Input 
+													name="cep"
+													mask="99.999-999" 
+													maskPlaceholder=" "
+													placeholder="CEP*" 
+													type="text" 
+													className="address-input"
+													required/>
+
+												<Input 
+													name="complement"
+													placeholder="Complemento" 
+													type="text" 
+													className="address-input"
+													style={{width: '38%'}}/>
+												
+												<div>
+													<Button type="submit" style={{marginRight: 20}} bg="#0466B9">Adicionar</Button>
+													<Button onClick={() => {setNewAddress(false)}}  bg="#59ABF1">Cancelar</Button>
+												</div>
+												
+											</Form>
+										</Section>
+									</Box>
+								)}
+
+								{getOnStore && (
+									<Box>
+										<Section>
+											<SectionTitle>Retirar na loja</SectionTitle>
+											<Form onSubmit={addAddress} style={{flexWrap: 'wrap', display: 'flex'}}>
+												<Input 
+													name="date"
+													placeholder="Data de Retirada*"
+													mask="99/99/9999" 
+													type="text" 
+													className="address-input"/>
+
+												<Input 
+													name="hour"
+													placeholder="Horário de Retirada" 
+													mask="99:99" 
+													type="text" 
+													style={{width: '15%'}}
+													className="address-input"
+													required/>
+
+												
+												
+												<div>
+													<Button type="submit" style={{marginRight: 20}} bg="#00B755">Finalizar</Button>
+													<Button onClick={() => {setGetOnStore(false)}}  bg="#59ABF1">Cancelar Retirada</Button>
+												</div>
+												
+											</Form>
+										</Section>
+									</Box>
+								)}
+
+								{(!newAddress && !getOnStore)&& (
+									<div>
+										<Button onClick={() => {setNewAddress(true)}} style={{marginRight: 20}} bg="#0466B9">Novo Endereço</Button>
+										<Button onClick={() => {setGetOnStore(true)}} style={{marginRight: 20}} bg="#59ABF1">Retirar na loja</Button>
+										{addressSelected  && <Button onClick={createOrderFromAddress} bg="#00B755">Executar compra</Button>}
+									</div>
+								)}
+
+								
+								
+							</div>
+						)}
+
+						
 					</Content>
 
 				) : (
@@ -87,8 +354,9 @@ function Cart({history, cart, removeFromCart}) {
 					</Box>
 
 					</Content>
-					
 				)}
+
+				<Footer />
 			
 		</Container>
 	);
@@ -96,7 +364,7 @@ function Cart({history, cart, removeFromCart}) {
 
 const mapStateToProps = state => ({
 	cart: state.cart,
-	login: state.login.token
+	login: state.login.user
 });
 
 const mapDispatchToProps = dispatch =>

@@ -19,18 +19,17 @@ export const Content = styled.div`
 `
 
 export const Box = styled.div`
+	padding: 20px;
 	margin-top: 30px;
 	background: #fff;
 	box-shadow: 0px 3px 6px #00000029;
 	border-radius: 6px;
-	padding: 30px;
 	display: flex;
-	flex-direction: column;
-
-	
+	flex-wrap: wrap;
 `
 
 export const List = styled.table`
+	margin: 10px;
 	width: 100%;
 	align: left;
 `
@@ -96,6 +95,14 @@ export const Alert = styled.p`
 	display: flex;
 `
 
+export const Section = styled.div`
+	display: flex;
+	padding: 10px 20px 10px 10px;
+	flex-direction: column;
+	border-right: 1px solid rgba(0,0,0,0.2);
+	flex-grow: 1;
+`
+
 export const SectionTitle = styled.span`
 	color: #303233;
 	font-weight: 700;
@@ -118,3 +125,33 @@ export const Button = styled.button`
 	background: ${props => props.bg};
 	margin-top: 20px;
 `
+
+export const ButtonOutlined = styled.button`
+	height: 52px;
+	padding: 10px;
+	color: #0466B9;
+	border-radius: 6px;
+	font-size: 14px;
+	background: none;
+	border: 1px solid #0466B9;
+	margin-top: 20px;
+	margin-right: 10px;
+`
+
+export const Address = styled.div`
+	padding: 20px;
+	border-radius: 6px;
+	border: 1px solid #0466B9;
+	margin-right: 20px;
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+	flex-grow: 1;
+`
+
+export const AddressSpan = styled.span`
+	margin-top: 5px;
+	color: #0466B9;
+	font-size: 14px;
+`
+

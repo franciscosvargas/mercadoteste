@@ -7,6 +7,11 @@ export const popupStatus = ({name, information}) => ({
 	}
 })
 
+export const logout = () => ({
+    type: 'LOGOUT',
+    payload: {}
+})
+
 export const menuStatus = () => ({
     type: 'MENU_STATUS',
 

@@ -8,11 +8,10 @@ import * as actions from '../../store/actions/products';
 
 import { Container, Name } from './styles';
 
-import Topbar from '../../Components/TopBar';
-import SideMenu from '../../Components/SideMenu';
+import Top from '../../Components/Top';
 import ProductsSession from '../../Components/ProductsSession';
 import Footer from '../../Components/Footer';
-import PopUp from '../../Components/PopUp';
+
 
 import api from '../../services/api';
 
@@ -31,11 +30,7 @@ function Category({refreshProductList, history}) {
 
 	return (
 		<Container>
-
-			<PopUp/>
-			<SideMenu history={history} />
-			<Topbar />
-
+			<Top history={history} />
 			<Name>{name}</Name>
 			<ProductsSession history={history}/>
 			<Footer />

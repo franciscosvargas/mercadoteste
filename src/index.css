@@ -118,3 +118,32 @@ body {
 ::-webkit-scrollbar-thumb:hover {
 	background: rgba(4, 102, 185, 1)
 }
+
+.marginBottomSpan {
+	margin-bottom: 2px !important;
+}
+
+.marginTopSpan {
+	margin-top: 0px !important;
+}
+
+.selected {
+	background: #0466B9 !important;
+	color: #fff !important;
+}
+
+
+.addresses {
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.address-input {
+	flex-grow: 1 !important;
+	margin-right: 20px;
+}
+
+.max-width {
+	width: 90%;
+}

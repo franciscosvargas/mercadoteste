@@ -21,7 +21,10 @@ export default function login(state = INITIAL_STATE, action) {
 				const newState = state.filter(product => product.id !== action.payload.id)
 				return [...newState]
 			}
-			
+			break;
+
+		case 'CLEAR_CART':
+			return [];
 			break;
 		
         default:

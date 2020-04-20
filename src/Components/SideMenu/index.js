@@ -11,7 +11,7 @@ import icClose from '../../assets/ic_close.svg'
 import icWhats from '../../assets/ic_whats_blue.svg'
 
 
-function SideMenu({categories, open, menuStatus, history }) {
+function SideMenu({categories, open, menuStatus, history, logout }) {
   
 
 	const redirect = async (category, index) => {
@@ -23,6 +23,12 @@ function SideMenu({categories, open, menuStatus, history }) {
 		}
 
 		history.push(`/category/${category}`)
+	}
+
+	const signOut = () => {
+		console.log('a')
+		logout()
+		menuStatus()
 	}
 	
 	return (
@@ -41,11 +47,13 @@ function SideMenu({categories, open, menuStatus, history }) {
 							</List>
 							
 							<Footer>
-								<Category>Sobre a empresa</Category>
 								<div style={{display: 'flex'}}>
 									<Icon src={icWhats}/>
 									<Whatsapp>Atendimento via WhatsApp</Whatsapp>
 								</div>
+								<Category>Sobre a empresa</Category>
+								<Category onClick={signOut}>Sair da Conta</Category>
+								
 								
 							</Footer>
 						</Menu>

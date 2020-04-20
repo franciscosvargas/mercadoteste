@@ -10,17 +10,12 @@ export default function login(state = INITIAL_STATE, action) {
         case 'LOGIN_SUCCESS':
             return { ...state, user: action.payload.user, token: action.payload.token  };
             break;
-        case 'LOGIN_FAILURE':
-            return { ...state, error: true}
-            break;
         case 'LOGOUT':
-			return { ...state }
-
+			return  { user: {}, token: null }
+			break;
 		case 'UPDATE_USER':
-			return {
-				...state, user: action.payload.user
-			}
-			
+			return { ...state, user: action.payload.user}
+			break;
         default:
             return state;
     }

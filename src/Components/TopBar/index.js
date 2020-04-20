@@ -58,7 +58,7 @@ const TopBar = ({popup, popupStatus, login, history, menuStatus}) => {
 								<LinkSpan>Meus Dados</LinkSpan>
 							</LinkContainer>
 
-							<LinkContainer onClick={openDialog}>
+							<LinkContainer to="/orders">
 								<LinkSpan>Meus Pedidos</LinkSpan>
 							</LinkContainer>
 						</div>
