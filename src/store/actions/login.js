@@ -21,3 +21,11 @@ export const popupStatus = ({name, information}) => ({
 		information
 	}
 })
+
+export const redirectPopup = ({name, information}) => ({
+    type: 'REDIRECT_STATUS',
+    payload: {
+		name,
+		information
+	}
+})

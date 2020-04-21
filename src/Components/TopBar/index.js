@@ -80,8 +80,15 @@ const TopBar = ({popup, popupStatus, login, history, menuStatus}) => {
 			{showMenu && (
 				<Bottom>
 					<MobileLink onClick={menuStatus}>Categorias</MobileLink>
-					<MobileLink>Carrinho</MobileLink>
-					<MobileLink>Acesse sua conta</MobileLink>
+					<MobileLink to="/cart">Carrinho</MobileLink>
+					{!login ? (
+						<MobileLink onClick={openDialog}>Acesse sua conta</MobileLink>
+					) : (
+						<div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
+							<MobileLink onClick={() => {popupStatus({name: 'editData'})}}>Meus Dados</MobileLink>
+							<MobileLink to="/orders">Meus Pedidos</MobileLink>
+						</div>
+					)}
 				</Bottom>
 			)}
 

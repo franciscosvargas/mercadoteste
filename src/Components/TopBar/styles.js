@@ -94,7 +94,7 @@ export const Bottom = styled.div`
 	align-items: flex-end;
 `
 
-export const MobileLink = styled.a`
+export const MobileLink = styled(Link)`
 	font-size: 20px;
 	font-weight: 500;
 	color: #fff;

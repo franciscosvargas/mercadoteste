@@ -19,7 +19,7 @@ import icClose from '../../../assets/ic_cancel.svg';
 
 import api from '../../../services/api'
 
-const Login = ({info, close, loginSuccess, popupStatus}) => {
+const Login = ({info, close, loginSuccess, popupStatus, redirectPopup}) => {
 	const [error, setError] = useState(false)
 	const ref = useRef(null)
 
@@ -61,7 +61,7 @@ const Login = ({info, close, loginSuccess, popupStatus}) => {
 			<span className="or">ou</span>
 			<FormButton className="login-input" bg="#59ABF1">Acesse pelo aplicativo</FormButton>
 	
-			<TextButton>Não tem uma conta?</TextButton>
+			<TextButton onClick={() => {redirectPopup({name: 'register'})}}>Não tem uma conta?</TextButton>
 		</Container>
 	);
 }

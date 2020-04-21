@@ -6,15 +6,21 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-	height: calc(100% - 221px) !important;
 	width: calc(100%-250px);
+	
 	display: flex;
 	justify-content: space-around;
-	padding: 50px 125px 0px 125px;
+	padding: 30px 125px 0px 125px;
 	flex-wrap: wrap;
+
+
+	@media (min-width: 750px) {
+		height: calc(100% - 221px) !important;
+	}
 
 	@media (max-width: 950px) {
 		padding: 20px 50px 20px 50px;
+		
 	}
 
 	@media (max-width: 350px) {
@@ -23,18 +29,39 @@ export const Content = styled.div`
 `;
 
 export const Box = styled.div`
+	margin-top: 20px;
 	width: 40%;
-	height: 70%;
 	padding: 30px;
 	background: #fff;
 	box-shadow: 0px 3px 6px #00000029;
 	border-radius: 6px;
 	display: flex;
-	
+
+	@media (min-width: 950px) {
+		height: 70%;
+	}
+
+	@media (max-width: 950px) {
+		width: 60%;
+	}
+
+	@media (max-width: 650px) {
+		width: 90%;
+	}
+
+
 `
 
 export const Image = styled.img`
 	max-width: 90%;
+
+	@media (max-width: 950px) {
+		max-width: 20%;
+	}
+
+	@media (max-width: 550px) {
+		max-width: 40%;
+	}
 `
 
 export const Name = styled.span`
@@ -47,13 +74,20 @@ export const Horizontal = styled.div`
 	margin-top: auto;
 	display: flex;
 	align-items: center;
+
+	@media (max-width: 950px) {
+		margin-top: 50px;
+	}
 `
 
 export const Price = styled.span`
 	color: #383D40;
 	font-size: 30px;
 	font-weight: 500;
-	justify-content: flex-start
+	justify-content: flex-start;
+
+	
+
 `
 
 export const Button = styled.button`
