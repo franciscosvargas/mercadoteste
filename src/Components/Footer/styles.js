@@ -9,6 +9,8 @@ export const Container = styled.div`
 	align-items: center;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	
+
 
 	@media (max-width: 1100px) {
 		justify-content: center;
@@ -16,7 +18,6 @@ export const Container = styled.div`
 
 	@media (max-width: 560px) {
 		margin-top: 50px;
-		position: relative;
 	}
 
 	@media (max-width: 700px) {

@@ -128,8 +128,14 @@ body {
 }
 
 .selected {
-	background: #0466B9 !important;
+	background:#0466B9 !important;
 	color: #fff !important;
+}
+
+.selected-address {
+	border: 1px solid #0466B9 !important;
+	color: #0466B9 !important;
+	opacity: 1 !important;
 }
 
 

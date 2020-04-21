@@ -7,14 +7,13 @@ import * as actions from '../../store/actions/cart';
 
 import { 
 	Container,
-	Content,
 	Box,
 	Section, 
 	SectionTitle,
 	Alert
 } from '../Cart/styles';
 
-import { Order, TitleOrder, DateOrder } from './styles'
+import { OrderList, Order, TitleOrder, DateOrder, Content} from './styles'
 
 import Top from '../../Components/Top';
 import Footer from '../../Components/Footer';
@@ -41,6 +40,11 @@ function Orders({history, cart, removeFromCart, popupStatus, login, clearCart, l
 		}
 
 		setOrders(data)
+
+	}
+
+	const redirect = () => {
+		history.push('/order/aaaaaa')
 	}
 
 	return (
@@ -49,31 +53,21 @@ function Orders({history, cart, removeFromCart, popupStatus, login, clearCart, l
 
 				{orders && (
 					<Content>
-					
 						<Box>
 							<Section style={{border: 'none'}}>
 								<SectionTitle>Pedidos em Aberto</SectionTitle>
 								{!orders.open.length ? (
-									<Alert>Não há pedidos finalizados</Alert>
+									<Alert>Não há pedidos em aberto</Alert>
 								) : (
-									<div>
-										<Slider
-											options={{
-												cellAlign: 'center',
-												draggable: true,
-												groupCells: true,
-												contain: false,
-												pageDots: false,
-											}}
-										>
+									<OrderList>
+									
 											{orders.open.map(order => (
-												<Order key={order.key} to={`/order/${order.key}`}>
+												<Order key={order.key} to={`/order?date=${order.date}&key=${order.key}`}>
 												<TitleOrder>Ordem {order.personalCode}</TitleOrder>
-												<DateOrder>08/02 às 11:57</DateOrder>
-											</Order> 
+												<DateOrder>{order.dateFormated}</DateOrder>
+												</Order> 
 											))}
-										</Slider>
-									</div>
+									</OrderList>
 								)}
 								
 							</Section>
@@ -87,22 +81,14 @@ function Orders({history, cart, removeFromCart, popupStatus, login, clearCart, l
 									<Alert>Não há pedidos finalizados</Alert>
 								) : (
 									<div>
-										<Slider
-											options={{
-												cellAlign: 'center',
-												draggable: true,
-												groupCells: true,
-												contain: false,
-												pageDots: false,
-											}}
-										>
+										<OrderList>
 											{orders.finished.map(order => (
-												<Order>
+												<Order key={order.key} to={`/order?date=${order.date}&key=${order.key}`}>
 												<TitleOrder>Ordem {order.personalCode}</TitleOrder>
-												<DateOrder>08/02 às 11:57</DateOrder>
-											</Order> 
+												<DateOrder>{order.dateFormated}</DateOrder>
+												</Order> 
 											))}
-										</Slider>
+										</OrderList>
 									</div>
 								)}
 								

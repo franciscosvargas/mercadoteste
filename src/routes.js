@@ -18,8 +18,8 @@ const Routes = () => (
 			<Route path="/category/:name" component={Category}/>
 			<Route path="/product/:category/:id" component={ProductDetails}/>
 			<Route path="/cart" component={Cart}/>
-			<Route path="/orders" component={Orders}/>
-			<Route path="/order/:id" component={Order}/>
+			<Route exact path="/orders" component={Orders}/>
+			<Route path="/order" component={Order}/>
 
 
 		</Switch>

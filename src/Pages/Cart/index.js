@@ -107,10 +107,40 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 		const {data} = await api.post('/l/order', 
 			{
 				cpf: login.cpf, 
-				delivery: { methodToExclude, address: address.address },
-				cart
+				delivery: { methodToExclude, address: address.address, deliveryDate: '' },
+				cart,
+				getOnStore: false
 			}
 		)
+
+		clearCart()
+
+		window.location = `https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=${data.code}`
+	}
+
+	const createOrderToGetOnStore = async(info) => {
+		const address = "**RETIRAR NA LOJA**"
+
+		let deliveryDate = `${info.date}-${info.hour}:00`
+
+		let methodToExclude = ''
+
+		if(!paymentMethod.boleto) {
+			methodToExclude = 'BOLETO'
+		} else {
+			methodToExclude = 'CREDIT_CARD'
+		}
+
+		const {data} = await api.post('/l/order', 
+			{
+				cpf: login.cpf, 
+				delivery: { deliveryDate, address, methodToExclude },
+				cart,
+				getOnStore: true
+			}
+		)
+
+	
 
 		clearCart()
 
@@ -182,7 +212,7 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 									<Section style={{marginLeft: 20, border: 'none'}}>
 										<Span className="marginBottomSpan">Escolha outras formas de</Span>
 										<Span className="marginTopSpan">pagamento em nosso app.</Span>
-										<img width="167px" src={icPlay}/>
+										<img alt="Icone PlayStore" width="167px" src={icPlay}/>
 									</Section>
 								</div>
 							)}
@@ -203,13 +233,13 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 												
 													{addresses.map(({address}, index) => (
 														isSelected(index) ? (
-															<Address className="selected" onClick={() => setAddressSelected(index + 1)}>
-																<AddressSpan className="selected">Endereço: {address.full}</AddressSpan>
-																<AddressSpan className="selected">Número: {address.number}</AddressSpan>
-																<AddressSpan className="selected">Bairro: {address.bairro}</AddressSpan>
-																<AddressSpan className="selected">Cidade: {address.city}</AddressSpan>
-																<AddressSpan className="selected">Estado: {address.uf}</AddressSpan>
-																<AddressSpan className="selected">CEP: {address.cep}</AddressSpan>
+															<Address className="selected-address" onClick={() => setAddressSelected(index + 1)}>
+																<AddressSpan>Endereço: {address.full}</AddressSpan>
+																<AddressSpan>Número: {address.number}</AddressSpan>
+																<AddressSpan>Bairro: {address.bairro}</AddressSpan>
+																<AddressSpan>Cidade: {address.city}</AddressSpan>
+																<AddressSpan>Estado: {address.uf}</AddressSpan>
+																<AddressSpan>CEP: {address.cep}</AddressSpan>
 															</Address>
 														) : (
 															<Address onClick={() => setAddressSelected(index + 1)}>
@@ -302,11 +332,11 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 									<Box>
 										<Section>
 											<SectionTitle>Retirar na loja</SectionTitle>
-											<Form onSubmit={addAddress} style={{flexWrap: 'wrap', display: 'flex'}}>
+											<Form onSubmit={createOrderToGetOnStore} style={{flexWrap: 'wrap', display: 'flex'}}>
 												<Input 
 													name="date"
 													placeholder="Data de Retirada*"
-													mask="99/99/9999" 
+													mask="99-99-9999" 
 													type="text" 
 													className="address-input"/>
 
@@ -318,8 +348,6 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 													style={{width: '15%'}}
 													className="address-input"
 													required/>
-
-												
 												
 												<div>
 													<Button type="submit" style={{marginRight: 20}} bg="#00B755">Finalizar</Button>
@@ -348,7 +376,7 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 					</Content>
 
 				) : (
-					<Content>
+					<Content style={{height: 'calc(100% - 261px)'}}>
 						<Box>
 						<Alert>Seu carrinho está vazio...</Alert>
 					</Box>

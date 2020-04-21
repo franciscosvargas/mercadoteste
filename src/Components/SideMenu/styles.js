@@ -9,6 +9,8 @@ export const Container = styled.div`
 	position: fixed !important;
 	background: rgba(0,0,0,0.7);
 	overflow: hidden;
+	z-index: 5;
+
 `
 export const Menu = styled.div`
 	width: 20%;

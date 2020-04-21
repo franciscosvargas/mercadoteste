@@ -2,12 +2,13 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
-	min-height: 100% !important;
+	height: 100% !important;
 	width: 100%;
+
 `;
 
 export const Content = styled.div`
-	padding: 0px 130px 30px 130px;
+	padding: 0px 130px 60px 130px;
 
 	@media (max-width: 950px) {
 		padding: 20px 50px 20px 50px;
@@ -46,6 +47,7 @@ export const FirstColumns = styled.td`
 	padding: 15px;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 	align: left;
+	color: #303233;
 `
 
 export const Line = styled.tr`
@@ -58,6 +60,7 @@ export const Column = styled.td`
 	font-weight: 500;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 	align: center;
+	color: #383D40;
 `
 
 
@@ -78,6 +81,8 @@ export const Image = styled.img`
 export const Name = styled.span`
 	margin-left: 20px;
 	font-weight: 300;
+	font-size: 18px;
+	color: #383D40;
 `
 
 export const Product = styled(Link)`
@@ -141,17 +146,25 @@ export const ButtonOutlined = styled.button`
 export const Address = styled.div`
 	padding: 20px;
 	border-radius: 6px;
-	border: 1px solid #0466B9;
+	border: 1px solid #77797B;
 	margin-right: 20px;
 	display: flex;
 	flex-direction: column;
 	margin-top: 10px;
 	flex-grow: 1;
+	color: #77797B;
+	opacity: 0.7;
+
+	:hover {
+		border: 1px solid #0466B9 !important;
+		color: #0466B9 !important;
+		opacity: 0.9;
+	}
 `
 
 export const AddressSpan = styled.span`
 	margin-top: 5px;
-	color: #0466B9;
 	font-size: 14px;
+
 `
 
