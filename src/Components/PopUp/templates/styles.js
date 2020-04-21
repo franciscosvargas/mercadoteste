@@ -11,6 +11,7 @@ export const Container = styled.div`
 	font-size: 28px;
 	color: #0466B9;
 	max-height: 80%;
+	max-width: 90% !important;
 
 
 	@media (max-width: 660px) {

@@ -153,3 +153,14 @@ body {
 .max-width {
 	width: 90%;
 }
+
+.prices {
+	width: 50% !important;
+}
+
+
+@media (max-width: 808px) {
+	.prices {
+		width: calc(100% - 40px) !important;
+	}
+}

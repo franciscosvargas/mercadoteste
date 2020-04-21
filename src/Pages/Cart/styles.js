@@ -14,7 +14,7 @@ export const Content = styled.div`
 		padding: 20px 50px 20px 50px;
 	}
 
-	@media (max-width: 350px) {
+	@media (max-width: 5000px) {
 		padding: 20px 30px 20px 30px;
 	}
 `
@@ -27,20 +27,25 @@ export const Box = styled.div`
 	border-radius: 6px;
 	display: flex;
 	flex-wrap: wrap;
+	
+	@media (max-width: 950px) {
+		width: calc(100% - 100px);
+	}
+
+	@media (max-width: 5000px) {
+		width: calc(100% - 100px);
+	}
 `
 
 export const List = styled.table`
 	margin: 10px;
-	width: 100%;
-	align: left;
+	flex-grow: 1;
 `
 
 export const FirstLine = styled.tr`
 	color: #303233;
 	font-weight: 700;
 	font-size: 18px;
-
-	
 `
 
 export const FirstColumns = styled.td`

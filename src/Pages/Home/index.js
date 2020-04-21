@@ -18,8 +18,13 @@ class Home extends Component {
  	componentDidMount = async () => {
 		const { data } = await api.get('/home')
 
-		this.props.refreshCategoryList(data.categories)
-		this.props.refreshProductList(data.products)
+		console.log(data)
+		const {products, categories} = data.products
+
+		this.props.refreshCategoryList(categories)
+		this.props.refreshProductList(products)
+
+		if(data.popup.popUp) this.props.popupStatus({name: 'notify', information: data.popup.message})
 	}
 
 	render() {

@@ -67,8 +67,9 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 			return popupStatus({name: 'login'})
 		}
 		
-		data.push({address: login.address})
-		setAddresses(data)
+		if(login.address.full) data.push({address: login.address})
+
+		if(data.length > 0) setAddresses(data)
 	}
 
 	const selectPayMethod = (method) => {
@@ -225,7 +226,7 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 						
 						{paymentMethod.selected && (
 							<div>
-								{!getOnStore && (
+								{(!getOnStore && addresses )&& (
 									<Box>
 										<Section style={{border: 0}}>
 											<SectionTitle>Defina um endereço para entrega</SectionTitle>
@@ -259,7 +260,7 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 									</Box>
 								)}
 
-								{newAddress && (
+								{(newAddress || !addresses)&& (
 									<Box>
 										<Section>
 											<SectionTitle>Novo Endereço</SectionTitle>

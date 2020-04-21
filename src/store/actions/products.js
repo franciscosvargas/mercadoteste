@@ -23,3 +23,12 @@ export const menuStatus = () => ({
     type: 'MENU_STATUS',
 
 })
+
+  
+export const popupStatus = ({name, information}) => ({
+    type: 'POPUP_STATUS',
+    payload: {
+		name,
+		information
+	}
+})

@@ -90,6 +90,5 @@ export const Footer = styled.div`
 	flex-direction: column;
 	margin-top: auto;
 	padding-top: 10px;	
-
 `
 

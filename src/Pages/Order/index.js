@@ -82,7 +82,7 @@ function Orders({history, popupStatus, logout,  login}) {
 						</Box>
 
 						<Box>
-							<Section style={{width: '50% !important', flexGrow: '0 !important'}}>
+							<Section style={{width: '50% !important', flexGrow: '0 !important', marginRight: 15}}>
 								<SectionTitle>Endereço para entrega</SectionTitle>
 								<Info style={{marginTop: 20}}>
 									Endereço: {order.addressDelivery.full}
@@ -95,7 +95,7 @@ function Orders({history, popupStatus, logout,  login}) {
 								<Info>Complemento: {order.addressDelivery.complement}</Info>
 								<Info>CEP: {order.addressDelivery.cep}</Info>
 							</Section>
-							<div style={{marginLeft: 15, display: 'flex', flexGrow: 1, flexDirection: 'column'}}>
+							<div style={{marginLeft: 0, display: 'flex', flexGrow: 1, flexDirection: 'column'}}>
 								<Section style={{borderBottom: '1px solid rgba(0,0,0,0.2) !important', borderRight: 'none'}}>
 									<SectionTitle>Data de entrega/retirada</SectionTitle>
 									<Info  style={{marginTop: 20}}>
@@ -125,7 +125,7 @@ function Orders({history, popupStatus, logout,  login}) {
 							
 						</Box>
 
-						<Box style={{width: '45%'}}>
+						<Box className="prices">
 							<Value>
 								<SectionTitle>Custo de Entrega</SectionTitle>
 								<Info style={{marginLeft: 'auto'}}>R$ {order.priceDelivery}</Info>

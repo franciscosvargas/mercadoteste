@@ -8,7 +8,7 @@ import ProductDetails from './Pages/ProductDetails';
 import Cart from './Pages/Cart';
 import Orders from './Pages/Orders';
 import Order from './Pages/Order';
-
+import About from './Pages/About';
 
 
 const Routes = () => (
@@ -20,8 +20,7 @@ const Routes = () => (
 			<Route path="/cart" component={Cart}/>
 			<Route exact path="/orders" component={Orders}/>
 			<Route path="/order" component={Order}/>
-
-
+			<Route path="/about" component={About}/>
 		</Switch>
 			
     </BrowserRouter>

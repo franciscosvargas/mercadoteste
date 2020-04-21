@@ -72,7 +72,7 @@ function ProductDetails({history, addToCart, removeFromCart, cart}) {
 					)}
 					
 					
-					<Button bg="#0466B9">Ver Mais Produtos</Button>
+					<Button onClick={() => { history.push(`/category/${product.type}`)}} bg="#0466B9">Ver Mais Produtos</Button>
 				</Box>
 			</Content>
 			<Footer />		

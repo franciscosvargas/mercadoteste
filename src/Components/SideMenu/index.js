@@ -25,6 +25,13 @@ function SideMenu({categories, open, menuStatus, history, logout }) {
 		history.push(`/category/${category}`)
 	}
 
+	const redirectAbout = async () => {
+
+		menuStatus()
+
+		history.push(`/about`)
+	}
+
 	const signOut = () => {
 		console.log('a')
 		logout()
@@ -51,7 +58,7 @@ function SideMenu({categories, open, menuStatus, history, logout }) {
 									<Icon src={icWhats}/>
 									<Whatsapp>Atendimento via WhatsApp</Whatsapp>
 								</div>
-								<Category>Sobre a empresa</Category>
+								<Category onClick={redirectAbout}>Sobre a empresa</Category>
 								<Category onClick={signOut}>Sair da Conta</Category>
 								
 								

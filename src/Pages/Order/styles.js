@@ -4,15 +4,13 @@ import { Link } from 'react-router-dom';
 
 export const Content = styled.div`
 	padding: 0px 130px 30px 130px;
-	
-	
 
 	@media (max-width: 950px) {
 		padding: 20px 50px 20px 50px;
 	}
 
 	@media (max-width: 350px) {
-		padding: 20px 30px 20px 30px;
+		padding: 20px 20px 20px 20px;
 	}
 `
 
@@ -56,6 +54,9 @@ export const Column = styled.td`
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 	align: center;
 	color: #383D40;
+	@media (max-width: 808px) {
+		padding: 15px 15px 15px 0;
+	}
 `
 
 export const Name = styled.span`
@@ -70,11 +71,16 @@ export const Info = styled.span`
 `
 
 export const Section = styled.div`
+	width: 50%;
 	display: flex;
 	padding: 10px 20px 10px 10px;
 	flex-direction: column;
 	border-right: 1px solid rgba(0,0,0,0.2);
 	flex-grow: 1;
+	@media (max-width: 820px) {
+		border: none;
+		padding:10px;
+	}
 `
 
 export const Value = styled.div`
