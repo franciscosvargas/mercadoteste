@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 
 export const Content = styled.div`
 	padding: 0px 130px 30px 130px;
-	height: calc(100% - 240px);
 	
+	@media (min-width: 950px) {
+		height: calc(100% - 241px);
+	}
 
 	@media (max-width: 950px) {
 		padding: 20px 50px 20px 50px;
@@ -27,6 +29,11 @@ export const Section = styled.div`
 	flex-direction: column;
 	border-right: 1px solid rgba(0,0,0,0.2);
 	flex-grow: 1;
+
+	@media (max-width: 808px) {
+		border: none;
+		margin-bottom: 10px;
+	}
 `
 
 export const Value = styled.div`

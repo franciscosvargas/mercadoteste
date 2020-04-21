@@ -45,7 +45,7 @@ function About({history, popupStatus, logout,  login}) {
 
 					<Content>
 						{company && (
-							<Box>
+							<Box style={{width: 'calc(100% - 60px)'}}>
 								<Section style={{width: '50% !important', flexGrow: '0 !important'}}>
 									<SectionTitle>Endereço </SectionTitle>
 									<Info style={{marginTop: 20}}>

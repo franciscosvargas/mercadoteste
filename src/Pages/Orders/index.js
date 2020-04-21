@@ -53,7 +53,7 @@ function Orders({history, cart, removeFromCart, popupStatus, login, clearCart, l
 
 				{orders && (
 					<Content>
-						<Box>
+						<Box style={{width: 'calc(100% - 60px)'}}>
 							<Section style={{border: 'none'}}>
 								<SectionTitle>Pedidos em Aberto</SectionTitle>
 								{!orders.open.length ? (
@@ -73,7 +73,7 @@ function Orders({history, cart, removeFromCart, popupStatus, login, clearCart, l
 							</Section>
 						</Box>
 
-						<Box>
+						<Box style={{width: 'calc(100% - 60px)'}}>
 							<Section style={{border: 'none'}}>
 								<SectionTitle>Pedidos Finalizados</SectionTitle>
 								
