@@ -2,13 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 	bottom: 0;
-	width: (100% - 260px);
+	width: 100vw;
 	border-top: 1px solid #77797B;
-	padding: 30px 130px 30px 130px;
+	padding:30px 0px;
 	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	position:fixed;
 	
 
 
@@ -31,13 +29,21 @@ export const AppTitle = styled.span`
 	font-weight: 500;
 	font-size: 25px;
 	color: #77797B;
-	margin-right: 50px;
+	display:flex;
+	flex:1;
+	align-items: center;
+	justify-content: center;
 	
 `
 
 export const LastUpdate = styled.span`
 	color: #77797B;
 	font-size: 16px;
+	display:flex;
+	flex:1;
+	align-items: center;
+	justify-content: center;
+	
 `
 
 export const Side = styled.div`
