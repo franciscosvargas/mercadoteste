@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Container, AppTitle, LastUpdate } from './styles';
 
-const Footer = () => (
-	<Container>
-		<AppTitle>mercadoteste</AppTitle>
-		<LastUpdate>Última atualização da loja: 22/01</LastUpdate>
+const Footer = ({isFixed}) => (
+	<Container isFixed={isFixed}>
+		<AppTitle  isFixed={isFixed}>mercadoteste</AppTitle>
+		<LastUpdate  isFixed={isFixed}>Última atualização da loja: 22/01</LastUpdate>
 	</Container>
 );
 

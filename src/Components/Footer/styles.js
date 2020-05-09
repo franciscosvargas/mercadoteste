@@ -1,12 +1,27 @@
-import styled from 'styled-components';
+import styled,{css} from 'styled-components';
 
 export const Container = styled.div`
 	bottom: 0;
-	width: 100vw;
 	border-top: 1px solid #77797B;
+	${(props) =>
+    props.isFixed &&
+    css`
+	width: 100vw;
 	padding:30px 0px;
 	display: flex;
 	position:fixed;
+	
+	`}
+	${(props) =>
+    !props.isFixed &&
+    css`
+	width: (100% - 260px);
+	padding: 30px 130px 30px 130px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+    `}
 	
 
 
@@ -29,20 +44,38 @@ export const AppTitle = styled.span`
 	font-weight: 500;
 	font-size: 25px;
 	color: #77797B;
+	${(props) =>
+    props.isFixed &&
+    css`
 	display:flex;
 	flex:1;
 	align-items: center;
-	justify-content: center;
+	padding-left:130px;
+	
+	`}
+	
+	${(props) =>
+    !props.isFixed &&
+    css`
+	margin-right: 50px;
+    `}
+	
 	
 `
 
 export const LastUpdate = styled.span`
 	color: #77797B;
 	font-size: 16px;
+	${(props) =>
+    props.isFixed &&
+    css`
 	display:flex;
 	flex:1;
 	align-items: center;
-	justify-content: center;
+	justify-content:flex-end;
+	padding-right:130px;
+	`}
+	
 	
 `
 

@@ -34,7 +34,7 @@ class Home extends Component {
 
 				<ProductsSession history={this.props.history}/>
 				
-				<Footer />
+				<Footer isFixed={true} />
 			</Container>
 		);
 	}
