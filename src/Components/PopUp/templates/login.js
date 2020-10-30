@@ -26,6 +26,7 @@ const Login = ({info, close, loginSuccess, popupStatus, redirectPopup}) => {
 	const signin = async (info) => {
 		const { data } = await api.post('/auth', info)
 
+		console.log(data)
 		if(data.error) return setError(data.error)
 
 		loginSuccess(data)
