@@ -9,16 +9,17 @@ export const Container = styled.div`
 	position: fixed !important;
 	background: rgba(0,0,0,0.7);
 	overflow: hidden;
-	z-index: 5;
-
+  z-index: 5;
 `
 export const Menu = styled.div`
-	width: 20%;
-	padding: 30px;
+  position: relative;
+	width: 30vw;
 	background: #fff;
 	display: flex;
-	flex-direction: column;
-	font-size: 28px;
+  flex-direction: column;
+  font-size: 28px;
+  padding: 24px;
+  border-radius: 0 8px 8px 0;
 	
 	@media (max-width: 700px) {
 		width: 35%;
@@ -37,20 +38,38 @@ export const Menu = styled.div`
 	}
 `;
 
+export const MenuItems = styled.div`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 48px;
+`
+
 export const Icon = styled.img`
 	width: 20px;
 	height: 20px;
-	align-self: flex-end;
+  align-self: flex-end;
+`
 
+export const CloseIcon = styled(Icon)`
+  position: absolute;
+  top: 20px;
+  right: 20px;
 `
 
 export const Title = styled.span`
 	color: #303233;
 	font-weight: 700;
 	font-size: 32px;
-	padding-bottom: 20px;
-	margin-top: 40px;
-	
+	margin-top: 40px;	
+`
+
+export const ItemDivider = styled.hr`
+  background-color: gainsboro;
+  height: 1px;
+  width: 100%;
+  margin: 36px 0;
 `
 
 export const List = styled.div`
@@ -67,28 +86,28 @@ export const List = styled.div`
 	::-webkit-scrollbar-thumb {
 		background-color: #0466B9;
 	}
-	
 `
 
 export const Category = styled(Link)`
 	color: #383D40;
 	font-size: 20px;
-	margin-top: 20px;
-	display: flex;
+  display: flex;
+  
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
 `
 
 export const Whatsapp = styled(Link)`
 	color: #0466B9;
 	font-size: 18px;
-	margin-left: 10px;
-	margin-top: 10px;
+  margin-left: 10px;
 	display: flex;
 `
 
 export const Footer = styled.div`
 	display: flex;
 	flex-direction: column;
-	margin-top: auto;
-	padding-top: 10px;	
+	padding-top: 10px;
 `
 

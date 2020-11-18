@@ -5,7 +5,19 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 import * as actions from '../../store/actions/popup';
 
-import { Container, Menu, Icon, Title, List, Category, Footer, Whatsapp } from './styles';
+import {
+  Container,
+  Menu,
+  MenuItems,
+  CloseIcon,
+  Icon,
+  Title,
+  ItemDivider,
+  List,
+  Category,
+  Footer,
+  Whatsapp
+} from './styles';
 
 import icClose from '../../assets/ic_close.svg'
 import icWhats from '../../assets/ic_whats_blue.svg'
@@ -44,25 +56,29 @@ function SideMenu({categories, open, menuStatus, history, logout }) {
 				{open ? (
 					<Container>
 						<Menu>
-							<Icon onClick={menuStatus} src={icClose}/>
-							<Title>Categorias</Title>
+              <MenuItems>
+                <CloseIcon onClick={menuStatus} src={icClose}/>
+                <Title>Categorias</Title>
 
-							<List>
-								{categories.map((category, index) => 
-									<Category key={index} onClick={() => redirect(category, index)}>{category}</Category>
-								)}
-							</List>
-							
-							<Footer>
-								<div style={{display: 'flex'}}>
-									<Icon src={icWhats}/>
-									<Whatsapp>Atendimento via WhatsApp</Whatsapp>
-								</div>
-								<Category onClick={redirectAbout}>Sobre a empresa</Category>
-								<Category onClick={signOut}>Sair da Conta</Category>
-								
-								
-							</Footer>
+                <ItemDivider />
+
+                <List>
+                  {categories.map((category, index) => 
+                    <Category key={index} onClick={() => redirect(category, index)}>{category}</Category>
+                  )}
+                </List>
+
+                <ItemDivider />
+                
+                <Footer>
+                  <Category onClick={redirectAbout}>Sobre a empresa</Category>
+                  <div style={{ display: 'flex' }}>
+                    <Icon src={icWhats}/>
+                    <Whatsapp>Atendimento via WhatsApp</Whatsapp>
+                  </div>
+                  {/* <Category onClick={signOut}>Sair da Conta</Category> */}
+                </Footer>
+              </MenuItems>
 						</Menu>
 					</Container>
 				) : <div></div>}
