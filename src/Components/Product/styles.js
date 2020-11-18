@@ -1,38 +1,39 @@
 import styled from 'styled-components';
-
 import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
-	width: 230px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 20px;
   flex-grow: 1;
   background: #FFFFFF;
 	box-shadow: 0px 3px 6px #00000029;
   border-radius: 6px;
 `;
 
+export const CardContent = styled.div`
+  padding: 20px;
+`
+
 export const Name = styled(Link)`
+  display: block;
 	color: #383D40;
 	font-size: 18px;
 	height: 44px;
-	align-self: flex-start;
+  align-self: flex-start;
+  margin-bottom: 24px;
 `
 
 export const Image = styled.img`
 	margin-top: 18px;
-	max-width: 80%;
-	height: 200px;
+  width: 100%;
+  flex-grow: 1;
 `
 
-export const Price = styled.span`
-	font-weight: 700;
-	font-size: 16px;
-	color: #383D40;
-	align-self: start;
-	margin-top: 40px;
+export const AddCartButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
 `
 
 export const Button = styled.span`
@@ -43,8 +44,15 @@ export const Button = styled.span`
 	font-size: 16px;
 	font-weight: 300;
 	border-radius: 6px;
-	display:flex;
+	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-top: 16px;
+`
+
+export const AddedText = styled.p`
+  font-weight: bold;
+  color: gold;
+  font-size: 1em;
+  margin: 0 12px;
+  transition: all 0.5s;
 `
