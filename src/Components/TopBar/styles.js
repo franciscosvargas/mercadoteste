@@ -18,6 +18,7 @@ export const Container = styled.div`
 `;
 
 export const Logo = styled.img`
+  margin-left: auto;
 `
 
 export const AppTitle = styled.span`
@@ -45,9 +46,7 @@ export const LinkContainer = styled(Link)`
 	}
 `
 
-export const LinkIcon = styled.img`
-	margin-right: 5px;
-`
+export const LinkIcon = styled.img``
 
 export const Menu = styled.img`
 	width: 30px;

@@ -188,9 +188,9 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 						<Box>
 							{/* Total price */}
 							<Section>
-								<SectionTitle>Custo da compra</SectionTitle>
-								<Span>*Taxas se aplicam de acordo com o método de pagamento</Span>		
-								<SectionTitle>R$ {price.toFixed(2)}</SectionTitle>	
+								<SectionTitle>Valor da compra</SectionTitle>
+								<Span>*Taxas se aplicam de acordo com o método de pagamento</Span>
+								<SectionTitle>R$ {price.toFixed(2)}</SectionTitle>
 							</Section>
 								
 							{/* Payment Methods */}

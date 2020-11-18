@@ -23,13 +23,12 @@ import icBAG from '../../assets/ic_cart.svg';
 import icACC from '../../assets/ic_arrow.svg';
 import icMENU from '../../assets/ic_menu.svg';
 
-const TopBar = ({popup, popupStatus, login, history, menuStatus}) => {
+const TopBar = ({ popup, popupStatus, login, history, menuStatus }) => {
 	const [showMenu, setShowMenu ] = useState(false)
 	
 	const openDialog = () => {
-		if(!login) {
-			popupStatus({name: 'login'})
-		} else {
+		if (!login) {
+			popupStatus({ name: 'login' })
 		}
 	}
 
@@ -37,13 +36,12 @@ const TopBar = ({popup, popupStatus, login, history, menuStatus}) => {
 	return (
 		<Container>
 			<Top>
-				<Logo src={LogoSVG}/>
-				<AppTitle>mercadoteste</AppTitle>
-
 				<LinkContainer onClick={menuStatus}>
 					<LinkIcon style={{width: 30, height: 20}}src={icMENU}/>
 				</LinkContainer>
-				
+
+        <Logo src={LogoSVG}/>
+				<AppTitle>mercadoteste</AppTitle>
 	
 				<RightSide>
 					{!login ? (
