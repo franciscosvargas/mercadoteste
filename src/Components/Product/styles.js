@@ -8,7 +8,10 @@ export const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	padding: 20px;
-	flex-grow: 1;
+  flex-grow: 1;
+  background: #FFFFFF;
+	box-shadow: 0px 3px 6px #00000029;
+  border-radius: 6px;
 `;
 
 export const Name = styled(Link)`

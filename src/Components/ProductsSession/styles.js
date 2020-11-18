@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-	background: #FFFFFF;
-	box-shadow: 0px 3px 6px #00000029;
-	border-radius: 6px;
-	margin: 30px 125px 90px 125px;
-	display: flex;
-	flex-wrap: wrap;
+  margin: 30px 125px 90px 125px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-gap: 24px;
 
 	@media (max-width: 950px) {
 		margin: 30px 45px 0 45px;

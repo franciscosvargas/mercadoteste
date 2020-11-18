@@ -32,12 +32,10 @@ const Product = ({info, cart, addToCart, removeFromCart}) => {
 	}
 
 	return (
-		<Container  >
+		<Container>
 			<Name to={`/product/${info.type}/${info.id}`}>{info.name}</Name>
 			<Image src={info.url}/>
 			<Price>Por: R${info.price}</Price>
-
-			
 			{!qnt ? (
 				<Button onClick={() => {addAndRefresh()}} bg="#0466B9">Adicionar ao Carrinho</Button>
 			) : (
