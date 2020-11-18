@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 export const Container = styled.div`
 	height: 100% !important;
 	width: 100%;
-
 `;
 
 export const Content = styled.div`
-	padding: 0px 130px 60px 130px;
+  padding: 0px 130px 60px 130px;
+  width: 90%;
+  margin: 0 auto;
 
 	@media (max-width: 950px) {
 		padding: 20px 50px 20px 50px;
@@ -26,15 +27,9 @@ export const Box = styled.div`
 	box-shadow: 0px 3px 6px #00000029;
 	border-radius: 6px;
 	display: flex;
-	flex-wrap: wrap;
-	
-	@media (max-width: 950px) {
-		width: calc(100% - 100px);
-	}
-
-	@media (max-width: 5000px) {
-		width: calc(100% - 100px);
-	}
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: auto;
 `
 
 export const List = styled.table`

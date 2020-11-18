@@ -5,7 +5,8 @@
 	padding: 0;
 	outline: none;
 	text-decoration: none;
-	border: none;
+  border: none;
+  box-sizing: border-box;
 }
   
 html {
