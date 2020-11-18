@@ -48,8 +48,6 @@ export const Box = styled.div`
 	@media (max-width: 650px) {
 		width: 90%;
 	}
-
-
 `
 
 export const Image = styled.img`
@@ -80,24 +78,42 @@ export const Horizontal = styled.div`
 	}
 `
 
+export const ButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 20px 0 10px;
+`
+
+export const AddedText = styled.p`
+  font-weight: bold;
+  color: gold;
+  font-size: 1.35em;
+  margin: 0 auto 0 24px;
+`
+
 export const Price = styled.span`
 	color: #383D40;
-	font-size: 30px;
-	font-weight: 500;
+	font-size: 2.25em;
+	font-weight: bold;
 	justify-content: flex-start;
-
-	
-
 `
 
 export const Button = styled.button`
-	width: 100%;
-	height: 52px;
+  align-self: flex-end;
+  padding: 10px 42px;
+  font-weight: bold;
 	color: #fff;
 	border-radius: 6px;
 	font-size: 18px;
-	background: ${props => props.bg};
-	margin-top: 20px;
+  background: ${props => props.bg || 'transparent'};
+`
+
+export const SecondaryButton = styled(Button)`
+  width: 100%;
+  color: rgba(4, 102, 185, 0.7);
+  font-weight: bold;
+  font-size: 1.25em;
+  margin: 24px 0 16px;
 `
 
 export const ButtonCart = styled.button`

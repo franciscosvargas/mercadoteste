@@ -5,7 +5,22 @@ import { bindActionCreators } from "redux";
 
 import * as actions from '../../store/actions/cart';
 
-import { Container, Content, Box, Image, Name, Horizontal, Price, Button, ButtonCart, Right, SpanQnt } from './styles';
+import {
+  Container,
+  Content,
+  Box,
+  Image,
+  Name,
+  Horizontal,
+  Price,
+  Button,
+  ButtonsContainer,
+  AddedText,
+  SecondaryButton,
+  ButtonCart,
+  Right,
+  SpanQnt
+} from './styles';
 
 import Top from '../../Components/Top';
 import Footer from '../../Components/Footer';
@@ -57,7 +72,6 @@ function ProductDetails({history, addToCart, removeFromCart, cart}) {
 					<Name>{product.name}</Name>
 					<Horizontal>
 						<Price>Por: R$ {product.price}</Price>
-
 						<Right>
 							<ButtonCart onClick={() => {removeAndRefresh()}}>-</ButtonCart>
 							<SpanQnt>{!qnt ? '0' : qnt}</SpanQnt>
@@ -65,14 +79,16 @@ function ProductDetails({history, addToCart, removeFromCart, cart}) {
 						</Right>
 					</Horizontal>
 
-					{!qnt ? (
-						<Button onClick={() => {addAndRefresh()}} bg="#0466B9">Adicionar ao Carrinho</Button>
-					) : (
-						<Button onClick={() => {addAndRefresh()}} bg="#EFC800">Adicionado! Adicionar +</Button>
-					)}
+          <ButtonsContainer>
+            {qnt && <AddedText>Adicionado!</AddedText>}
+            <Button onClick={() => {addAndRefresh()}} bg="#0466B9">
+              {!qnt ? 'Adicionar ao Carrinho': 'Adicionar mais'}
+            </Button>
+          </ButtonsContainer>
 					
-					
-					<Button onClick={() => { history.push(`/category/${product.type}`)}} bg="#0466B9">Ver Mais Produtos</Button>
+					<SecondaryButton onClick={() => history.push(`/category/${product.type}`)}>
+            Ver mais produtos
+          </SecondaryButton>
 				</Box>
 			</Content>
 			<Footer />		
