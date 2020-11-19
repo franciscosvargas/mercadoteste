@@ -7,11 +7,10 @@ export const Container = styled(InputMask)`
 	font-size: 18px;
 	border: 1px solid #77797B;
 	border-radius: 6px;
-	margin-top: 20px;
 
 
 	::placeholder {
-		rgba(48, 50, 51, 0.5)
+		color: rgba(48, 50, 51, 0.5)
 	}
 `;
 

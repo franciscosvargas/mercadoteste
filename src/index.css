@@ -210,15 +210,19 @@ body {
 	font-family: 'Roboto';
 	cursor: pointer;
 	border-bottom: 1px solid  rgba(0, 0, 0, 0.2);
-	margin: 0px 18px;
+	margin: 0px 20px;
+	flex-grow: 1;
 }
 
 .dropdown:hover .dropdown-content {
 	display: flex;
 	flex-direction: column;
+	top: 35px;
+}
+
+.align-center {
 	align-items: center;
 	justify-content: center;
-	top: 35px;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */

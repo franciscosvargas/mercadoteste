@@ -13,7 +13,9 @@ import {
 	Title,
 	TextButton, 
 	FormButton,
-	Error
+	Error,
+	Header, 
+	InputSpan
  } from './styles';
 
 import Input from '../../Input'
@@ -42,97 +44,114 @@ function Login({info, close, updateUser, user}) {
 
 	return (
 		<Container >
-			<ButtonClose  onClick={close} src={icClose}/>
+
+			<Header>
+				<Title>Editar meus dados</Title>
+				<ButtonClose  onClick={close} src={icClose}/>
+
+			</Header>
 			
-			<Title>Editar meus dados</Title>
 			{error && <Error>{error}</Error>}
 
 			<Form initialData={user} onSubmit={update} ref={formRef} className="form">
+				<InputSpan>Nome completo *</InputSpan>
 				<Input 
 					name="name" 
-					placeholder="Nome completo*" 
+					placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 					className="login-input"
 					required/>
 
+				<InputSpan>CPF *</InputSpan>
 				<Input 
 					name="cpf" 
 					mask="999.999.999-99" 
-					maskPlaceholder=" "
-					placeholder="CPF*" 
+					maskPlaceholder="_"
+					placeholder="___.___.___-__" 
 					className="login-input"
 					required
 					/>
+
+				<InputSpan>Data de Nascimento *</InputSpan>
 				<Input 
 					name="birthdate"
 					mask="99/99/9999" 
-					maskPlaceholder=" "
-					placeholder="Data de Nascimento*" 
+					maskPlaceholder="_"
+					placeholder="__/__/____" 
 					type="text" 
 					className="login-input"
 					required/>
 
+				<InputSpan>Email *</InputSpan>
 				<Input 
 					name="email"
-					placeholder="Email*" 
+					placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 					type="email" 
 					className="login-input"
 					required/>
 
 				<Scope path="address">
+					<InputSpan>Endereço *</InputSpan>
 					<Input 
 						name="full"
-						placeholder="Endereço*" 
+						placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 						type="text" 
 						className="login-input"/>
 
+					<InputSpan>Bairro *</InputSpan>
 					<Input 
 						name="bairro"
-						placeholder="Bairro*" 
+						placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 						type="text" 
 						className="login-input"
 						required/>
 
+					<InputSpan>Número *</InputSpan>
 					<Input 
 						name="number"
-						placeholder="Número*" 
+						placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 						type="text" 
 						className="login-input"
 						required/>
 
+					<InputSpan>Cidade *</InputSpan>
 					<Input 
 						name="city"
-						placeholder="Cidade*" 
+						placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 						type="text" 
 						className="login-input"
 						required/>
 
+					<InputSpan>Estado *</InputSpan>
 					<Input 
 						name="uf"
-						placeholder="Estado*" 
+						placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 						type="text" 
 						className="login-input"
 						required/>
 
+					<InputSpan>CEP *</InputSpan>
 					<Input 
 						name="cep"
 						mask="99.999-999" 
-						maskPlaceholder=" "
-						placeholder="CEP*" 
+						maskPlaceholder="_"
+						placeholder="__.___-___" 
 						type="text" 
 						className="login-input"
 						required/>
 
+					<InputSpan>Complemento </InputSpan>
 					<Input 
 						name="complement"
-						placeholder="Complemento" 
+						placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 						type="text" 
 						className="login-input"/>
 				</Scope>
 				
 
+				<InputSpan>Celular com DDD *</InputSpan>
 				<Input 
 					name="phone"
-					placeholder="Telefone*" 
+					placeholder="(__)_____-____" 
 					type="text" 
 					className="login-input"
 					mask="(99)99999.9999" 

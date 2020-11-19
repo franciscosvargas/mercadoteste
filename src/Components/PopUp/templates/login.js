@@ -11,7 +11,10 @@ import {
 	Title,
 	TextButton, 
 	FormButton,
-	Error
+	Error,
+	Header, 
+	InputSpan
+
  } from './styles';
 
 import Input from '../../Input'
@@ -35,22 +38,28 @@ const Login = ({info, close, loginSuccess, popupStatus, redirectPopup}) => {
 
 	return (
 		<Container>
-			<ButtonClose  onClick={close} src={icClose}/>
+
+			<Header>
+				<Title>Acesse sua conta</Title>
+				<ButtonClose  onClick={close} src={icClose}/>
+			</Header>
 			
-			<Title>Acesse sua conta</Title>
 			{error && <Error>{error}</Error>}
 
 			<Form onSubmit={signin} style={{display: 'flex', flexDirection: 'column'}}>
+				<InputSpan>CPF</InputSpan>
 				<Input 
 					name="cpf" 
 					mask="999.999.999-99" 
-					maskPlaceholder=" "
-					placeholder="CPF" 
+					maskPlaceholder="_"
+					placeholder="___.___.___-__" 
 					className="login-input"
 					required/>
+
+				<InputSpan>Senha</InputSpan>
 				<Input 
 					name="password" 
-					placeholder="Senha" 
+					placeholder="*********" 
 					type="password" 
 					className="login-input"
 					required/>

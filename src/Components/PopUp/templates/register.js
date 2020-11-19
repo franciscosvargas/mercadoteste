@@ -13,7 +13,10 @@ import {
 	Title,
 	TextButton, 
 	FormButton,
-	Error
+	Error,
+	Header,
+	InputSpan
+
  } from './styles';
 
 import Input from '../../Input'
@@ -40,32 +43,39 @@ function Register({info, close, updateUser, user, popupStatus}) {
 
 	return (
 		<Container >
-			<ButtonClose  onClick={close} src={icClose}/>
+			<Header>
+				<Title>Crie uma conta</Title>
+				<ButtonClose  onClick={close} src={icClose}/>
 			
-			<Title>Editar meus dados</Title>
+			</Header>
+			
 			{error && <Error>{error}</Error>}
 
 			<Form onSubmit={update} ref={formRef} className="form">
+				<InputSpan>Nome Completo</InputSpan>
 				<Input 
-					name="name" 
-					placeholder="Nome completo" 
+					name="name"
+					placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " 
 					className="login-input"
 					required/>
 
+				<InputSpan>CPF</InputSpan>
 				<Input 
 					name="cpf" 
-					placeholder="CPF" 
+					placeholder="___.___.___-__" 
 					className="login-input"
 					mask="999.999.999-99"
 					required/>
 
+				<InputSpan>Celular com DDD</InputSpan>
 				<Input 
 					name="phone" 
-					placeholder="Celular (com DDD)" 
+					placeholder="(__)_____.____" 
 					className="login-input"
 					mask="(99)99999.9999"
 					required/>
 
+				<InputSpan>Email</InputSpan>
 				<Input 
 					name="email" 
 					type="email"
@@ -73,15 +83,14 @@ function Register({info, close, updateUser, user, popupStatus}) {
 					className="login-input"
 					required/>
 
+				<InputSpan>Crie uma senha</InputSpan>
 				<Input 
 					name="password" 
-					placeholder="Senha" 
+					placeholder="**********" 
 					className="login-input"
 					required/>
-
-					
-
 				<FormButton type="submit" className="login-input" bg="#0466B9">{!loading ? 'Criar conta' : 'Carregando...'}</FormButton>
+				<TextButton>Esqueceu sua senha?</TextButton>
 			</Form>
 		
 		</Container>

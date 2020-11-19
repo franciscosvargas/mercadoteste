@@ -56,7 +56,7 @@ const TopBar = ({ popup, popupStatus, login, logout, history, menuStatus }) => {
 						<div className="dropdown">
 							<LinkSpan  to="#" className="dropbtn">Entrar</LinkSpan>
 						 	<LinkIcon src={icACC}/>
-							<div className="dropdown-content">
+							<div className="dropdown-content align-center">
 								<Button onClick={openDialog}>Entrar</Button>
 								<LinkSpan onClick={openDialogSignUp} to="#">Não tem uma conta?</LinkSpan>
 							</div>
@@ -65,6 +65,7 @@ const TopBar = ({ popup, popupStatus, login, logout, history, menuStatus }) => {
 
 						<div className="dropdown">
 								<LinkSpan className="dropbtn">{login.split(" ")[0]}</LinkSpan>
+								<LinkIcon src={icACC}/>
 								<div className="dropdown-content">
 									<LinkSpan to="#" onClick={() => {popupStatus({name: 'editData'})}}>Meus dados</LinkSpan>
 									<LinkSpan to="/orders">Meus pedidos</LinkSpan>
