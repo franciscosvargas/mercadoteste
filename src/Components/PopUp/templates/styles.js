@@ -98,7 +98,7 @@ export const FormButton = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 20px;
+	margin-top: 15px;
 	font-weight: 300px !important;
 	cursor: pointer;
 

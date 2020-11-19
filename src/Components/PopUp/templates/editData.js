@@ -54,15 +54,15 @@ function Login({info, close, updateUser, user}) {
 			{error && <Error>{error}</Error>}
 
 			<Form initialData={user} onSubmit={update} ref={formRef} className="form">
-				<InputSpan>Nome completo *</InputSpan>
-				<Input 
+				<Input
+					span="Nome completo *"
 					name="name" 
 					placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 					className="login-input"
 					required/>
 
-				<InputSpan>CPF *</InputSpan>
 				<Input 
+					span="CPF *"
 					name="cpf" 
 					mask="999.999.999-99" 
 					maskPlaceholder="_"
@@ -71,8 +71,8 @@ function Login({info, close, updateUser, user}) {
 					required
 					/>
 
-				<InputSpan>Data de Nascimento *</InputSpan>
 				<Input 
+					span="Data de nascimento *"
 					name="birthdate"
 					mask="99/99/9999" 
 					maskPlaceholder="_"
@@ -81,8 +81,8 @@ function Login({info, close, updateUser, user}) {
 					className="login-input"
 					required/>
 
-				<InputSpan>Email *</InputSpan>
 				<Input 
+					span="Email *"
 					name="email"
 					placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 					type="email" 
@@ -90,47 +90,47 @@ function Login({info, close, updateUser, user}) {
 					required/>
 
 				<Scope path="address">
-					<InputSpan>Endereço *</InputSpan>
 					<Input 
+						span="Endereço *"
 						name="full"
 						placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 						type="text" 
 						className="login-input"/>
 
-					<InputSpan>Bairro *</InputSpan>
 					<Input 
+						span="Bairro *"
 						name="bairro"
 						placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 						type="text" 
 						className="login-input"
 						required/>
 
-					<InputSpan>Número *</InputSpan>
 					<Input 
+						span="Número *"
 						name="number"
 						placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 						type="text" 
 						className="login-input"
 						required/>
 
-					<InputSpan>Cidade *</InputSpan>
 					<Input 
+						span="Cidade *"
 						name="city"
 						placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 						type="text" 
 						className="login-input"
 						required/>
 
-					<InputSpan>Estado *</InputSpan>
 					<Input 
+						span="Estado *"
 						name="uf"
 						placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 						type="text" 
 						className="login-input"
 						required/>
 
-					<InputSpan>CEP *</InputSpan>
 					<Input 
+						span="CEP *"
 						name="cep"
 						mask="99.999-999" 
 						maskPlaceholder="_"
@@ -139,8 +139,8 @@ function Login({info, close, updateUser, user}) {
 						className="login-input"
 						required/>
 
-					<InputSpan>Complemento </InputSpan>
-					<Input 
+					<Input
+						span="Complemento"
 						name="complement"
 						placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 						type="text" 
@@ -148,8 +148,8 @@ function Login({info, close, updateUser, user}) {
 				</Scope>
 				
 
-				<InputSpan>Celular com DDD *</InputSpan>
-				<Input 
+				<Input
+					span="Celular com DDD *"
 					name="phone"
 					placeholder="(__)_____-____" 
 					type="text" 

@@ -52,40 +52,40 @@ function Register({info, close, updateUser, user, popupStatus}) {
 			{error && <Error>{error}</Error>}
 
 			<Form onSubmit={update} ref={formRef} className="form">
-				<InputSpan>Nome Completo</InputSpan>
 				<Input 
 					name="name"
+					span="Nome Completo *"
 					placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " 
 					className="login-input"
 					required/>
 
-				<InputSpan>CPF</InputSpan>
 				<Input 
-					name="cpf" 
+					name="cpf"
+					span="CPF *"
 					placeholder="___.___.___-__" 
 					className="login-input"
 					mask="999.999.999-99"
 					required/>
 
-				<InputSpan>Celular com DDD</InputSpan>
 				<Input 
 					name="phone" 
+					span="Celular com DDD *"
 					placeholder="(__)_____.____" 
 					className="login-input"
 					mask="(99)99999.9999"
 					required/>
 
-				<InputSpan>Email</InputSpan>
 				<Input 
 					name="email" 
 					type="email"
-					placeholder="Email" 
+					span="Email"
+					placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
 					className="login-input"
 					required/>
 
-				<InputSpan>Crie uma senha</InputSpan>
 				<Input 
 					name="password" 
+					span="Crie uma senha"
 					placeholder="**********" 
 					className="login-input"
 					required/>

@@ -47,18 +47,18 @@ const Login = ({info, close, loginSuccess, popupStatus, redirectPopup}) => {
 			{error && <Error>{error}</Error>}
 
 			<Form onSubmit={signin} style={{display: 'flex', flexDirection: 'column'}}>
-				<InputSpan>CPF</InputSpan>
 				<Input 
-					name="cpf" 
+					name="cpf"
+					span="CPF"
 					mask="999.999.999-99" 
 					maskPlaceholder="_"
 					placeholder="___.___.___-__" 
 					className="login-input"
 					required/>
 
-				<InputSpan>Senha</InputSpan>
 				<Input 
-					name="password" 
+					name="password"
+					span="Senha"
 					placeholder="*********" 
 					type="password" 
 					className="login-input"
@@ -71,7 +71,7 @@ const Login = ({info, close, loginSuccess, popupStatus, redirectPopup}) => {
 			<span className="or">ou</span>
 			<FormButton className="login-input" bg="#59ABF1">Acesse pelo aplicativo</FormButton>
 	
-			<TextButton onClick={() => {redirectPopup({name: 'register'})}}>Não tem uma conta?</TextButton>
+			<TextButton style={{marginTop: 25 }} onClick={() => {redirectPopup({name: 'register'})}}>Não tem uma conta?</TextButton>
 		</Container>
 	);
 }
