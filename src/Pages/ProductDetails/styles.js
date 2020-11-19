@@ -6,17 +6,13 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-	width: calc(100%-250px);
+	width: calc(100%-260px);
 	
 	display: flex;
-	justify-content: space-around;
-	padding: 30px 125px 0px 125px;
+	justify-content: space-between;
+	padding: 30px 130px 0px 130px;
 	flex-wrap: wrap;
 
-
-	@media (min-width: 750px) {
-		height: calc(100% - 221px) !important;
-	}
 
 	@media (max-width: 950px) {
 		padding: 20px 50px 20px 50px;
@@ -30,15 +26,19 @@ export const Content = styled.div`
 
 export const Box = styled.div`
 	margin-top: 20px;
-	width: 40%;
+	flex-grow: 1;
 	padding: 30px;
 	background: #fff;
 	box-shadow: 0px 3px 6px #00000029;
 	border-radius: 6px;
 	display: flex;
 
+	@media (max-width: 1250px) {
+		margin-right: 0px !important;
+	}
+
 	@media (min-width: 950px) {
-		height: 70%;
+		margin-bottom: 100px;
 	}
 
 	@media (max-width: 950px) {
@@ -80,7 +80,8 @@ export const Horizontal = styled.div`
 
 export const ButtonsContainer = styled.div`
   display: flex;
-  align-items: center;
+	align-items: center;
+	justify-content: space-between;
   padding: 20px 0 10px;
 `
 
@@ -88,7 +89,6 @@ export const AddedText = styled.p`
   font-weight: bold;
   color: gold;
   font-size: 1.35em;
-  margin: 0 auto 0 24px;
 `
 
 export const Price = styled.span`
@@ -99,13 +99,15 @@ export const Price = styled.span`
 `
 
 export const Button = styled.button`
-  align-self: flex-end;
+	align-self: flex-end;
+	width: ${props => props.qnt == 0 && '100%'};
   padding: 10px 42px;
   font-weight: bold;
 	color: #fff;
 	border-radius: 6px;
 	font-size: 18px;
-  background: ${props => props.bg || 'transparent'};
+	background: ${props => props.bg || 'transparent'};
+	cursor: pointer;
 `
 
 export const SecondaryButton = styled(Button)`
@@ -113,7 +115,7 @@ export const SecondaryButton = styled(Button)`
   color: rgba(4, 102, 185, 0.7);
   font-weight: bold;
   font-size: 1.25em;
-  margin: 24px 0 16px;
+	margin: 24px 0 16px;
 `
 
 export const ButtonCart = styled.button`

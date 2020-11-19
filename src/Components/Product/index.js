@@ -44,7 +44,11 @@ const Product = ({info, cart, addToCart, removeFromCart}) => {
 			<Image src={info.url}/>
       <CardContent>
         <Name to={`/product/${info.type}/${info.id}`}>{info.name}</Name>
-        <QuantitySelector />
+				<QuantitySelector 
+					price={info.price} 
+					qnt={qnt || 0}
+					addAndRefresh={addAndRefresh}
+					removeAndRefresh={removeAndRefresh}/>
         <AddCartButtonContainer>
           {qnt && <AddedText>Adicionado!</AddedText>}
           <Button onClick={() => {addAndRefresh()}} bg="#0466B9">

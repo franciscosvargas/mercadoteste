@@ -7,15 +7,20 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  padding: 0px 130px 60px 130px;
-  width: 90%;
-  margin: 0 auto;
+	width: calc(100%-260px);
+	
+	display: flex;
+	padding: 30px 130px 0px 130px;
+	flex-wrap: wrap;
+	margin-bottom: 100px;
+
 
 	@media (max-width: 950px) {
 		padding: 20px 50px 20px 50px;
+		
 	}
 
-	@media (max-width: 5000px) {
+	@media (max-width: 350px) {
 		padding: 20px 30px 20px 30px;
 	}
 `
@@ -165,6 +170,12 @@ export const Address = styled.div`
 export const AddressSpan = styled.span`
 	margin-top: 5px;
 	font-size: 14px;
+`
 
+export const InputSpan = styled.span`
+	color: #0466B9;
+	font-size: 18px;
+	margin-top: 15px;
+	margin-bottom: 5px;
 `
 

@@ -36,7 +36,7 @@ export const AddCartButtonContainer = styled.div`
   margin-top: 24px;
 `
 
-export const Button = styled.span`
+export const Button = styled.button`
 	width: 100%;
 	background: ${props => props.bg};
 	height: 32px;
@@ -47,6 +47,7 @@ export const Button = styled.span`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
 `
 
 export const AddedText = styled.p`

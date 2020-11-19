@@ -25,7 +25,9 @@ import {
 	Button, 
 	ButtonOutlined,
 	Address,
-	AddressSpan
+	AddressSpan,
+	InputSpan
+
 } from './styles';
 
 import Top from '../../Components/Top';
@@ -225,7 +227,7 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 
 						
 						{paymentMethod.selected && (
-							<div>
+							<div style={{width: '100%', display: 'flex', flexDirection: 'column'}}>
 								{(!getOnStore && addresses )&& (
 									<Box>
 										<Section style={{border: 0}}>
@@ -265,40 +267,42 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 										<Section>
 											<SectionTitle>Novo Endereço</SectionTitle>
 											<Form onSubmit={addAddress} style={{flexWrap: 'wrap', display: 'flex'}}>
-												<Input 
-													name="full"
-													placeholder="Endereço*" 
-													type="text" 
-													className="address-input max-width"/>
 
 												<Input 
+													name="full"
+													placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _" 
+													type="text"
+													span="Endereço *"
+													className="address-input max-width"/>
+
+												<Input
 													name="number"
-													placeholder="Número*" 
+													placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _"
+													span="Número *"
 													type="text" 
-													style={{width: '15%'}}
 													className="address-input"
 													required/>
 
 												<Input 
 													name="bairro"
-													placeholder="Bairro*" 
+													span="Bairro *" 
+													placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _"
 													type="text" 
 													className="address-input"
-													style={{width: '44%'}}
 													required/>
-
-												
 
 												<Input 
 													name="city"
-													placeholder="Cidade*" 
+													span="Cidade *" 
+													placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _"
 													type="text" 
 													className="address-input"
 													required/>
 
 												<Input 
 													name="uf"
-													placeholder="Estado*" 
+													span="Estado *" 
+													placeholder="_ _ "
 													type="text" 
 													className="address-input"
 													required/>
@@ -306,15 +310,17 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 												<Input 
 													name="cep"
 													mask="99.999-999" 
-													maskPlaceholder=" "
-													placeholder="CEP*" 
+													maskPlaceholder="_"
+													span="CEP *"
+													placeholder="__.___-___"
 													type="text" 
 													className="address-input"
 													required/>
 
 												<Input 
 													name="complement"
-													placeholder="Complemento" 
+													span="Complemento"
+													placeholder="_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _"
 													type="text" 
 													className="address-input"
 													style={{width: '38%'}}/>
@@ -336,17 +342,18 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 											<Form onSubmit={createOrderToGetOnStore} style={{flexWrap: 'wrap', display: 'flex'}}>
 												<Input 
 													name="date"
-													placeholder="Data de Retirada*"
+													span="Data de retirada"
+													placeholder="__-__-____"
 													mask="99-99-9999" 
 													type="text" 
 													className="address-input"/>
 
 												<Input 
 													name="hour"
-													placeholder="Horário de Retirada" 
+													span="Horário de Retirada"
+													placeholder="__:__" 
 													mask="99:99" 
 													type="text" 
-													style={{width: '15%'}}
 													className="address-input"
 													required/>
 												
@@ -361,7 +368,7 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 								)}
 
 								{(!newAddress && !getOnStore)&& (
-									<div>
+									<div style={{alignSelf: 'flex-end'}}>
 										<Button onClick={() => {setNewAddress(true)}} style={{marginRight: 20}} bg="#0466B9">Novo Endereço</Button>
 										<Button onClick={() => {setGetOnStore(true)}} style={{marginRight: 20}} bg="#59ABF1">Retirar na loja</Button>
 										{addressSelected  && <Button onClick={createOrderFromAddress} bg="#00B755">Executar compra</Button>}

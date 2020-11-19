@@ -64,7 +64,7 @@ function ProductDetails({history, addToCart, removeFromCart, cart}) {
 		<Container>
 			<Top history={history}/>
 			<Content>
-				<Box style={{justifyContent: 'center'}}>
+				<Box style={{justifyContent: 'center', marginRight: 32}}>
 					<Image src={product.url}/>
 				</Box>
 
@@ -80,8 +80,8 @@ function ProductDetails({history, addToCart, removeFromCart, cart}) {
 					</Horizontal>
 
           <ButtonsContainer>
-            {qnt && <AddedText>Adicionado!</AddedText>}
-            <Button onClick={() => {addAndRefresh()}} bg="#0466B9">
+            {qnt > 0 && <AddedText>Adicionado!</AddedText>}
+            <Button onClick={() => {addAndRefresh()}} bg="#0466B9" qnt={qnt}>
               {!qnt ? 'Adicionar ao Carrinho': 'Adicionar mais'}
             </Button>
           </ButtonsContainer>

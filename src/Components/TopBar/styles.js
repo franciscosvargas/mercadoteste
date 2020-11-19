@@ -39,7 +39,6 @@ export const RightSide = styled.div`
 export const LinkContainer = styled(Link)`
 	display: flex;
 	align-items: center;
-	margin-left: 40px;
 
 	@media (max-width: 765px) {
 		display: none;
