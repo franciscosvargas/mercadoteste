@@ -4,7 +4,7 @@ import { store } from '../store/index';
 
 const api = axios.create({
     /* baseURL: 'https://ditudo-backend.herokuapp.com', */
-    baseURL: 'https://66ef67a75bd1.ngrok.io ',
+    baseURL: 'http://localhost:3001'
 })
 
 api.interceptors.request.use(async function (config) {

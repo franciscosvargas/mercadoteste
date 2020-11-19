@@ -58,7 +58,7 @@ export const Menu = styled.img`
 	}
 `
 
-export const LinkSpan = styled.span`
+export const LinkSpan = styled(Link)`
 	color: #FFFFFF;
 	font-size: 16px;
 	font-weight: 300;
@@ -98,4 +98,16 @@ export const MobileLink = styled(Link)`
 	font-weight: 500;
 	color: #fff;
 	margin-top: 10px;
+`
+
+export const Button = styled.button`
+	background: #0466B9;
+	padding: 11px 40px;
+	flex-grow: 1;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 400 !important;
+	border-radius: 6px;
+	margin-top: 20px;
+	cursor: pointer;
 `

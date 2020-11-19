@@ -15,7 +15,9 @@ import {
 	LinkIcon, 
 	LinkSpan, 
 	Menu,
-	MobileLink
+	MobileLink,
+	Button
+
 } from './styles';
 
 import LogoSVG from '../../assets/logo.svg';
@@ -23,13 +25,18 @@ import icBAG from '../../assets/ic_cart.svg';
 import icACC from '../../assets/ic_arrow.svg';
 import icMENU from '../../assets/ic_menu.svg';
 
-const TopBar = ({ popup, popupStatus, login, history, menuStatus }) => {
+const TopBar = ({ popup, popupStatus, login, logout, history, menuStatus }) => {
 	const [showMenu, setShowMenu ] = useState(false)
 	
 	const openDialog = () => {
 		if (!login) {
 			popupStatus({ name: 'login' })
 		}
+	}
+
+	const openDialogSignUp = () => {
+		
+			popupStatus({ name: 'register' })
 	}
 
 
@@ -45,21 +52,25 @@ const TopBar = ({ popup, popupStatus, login, history, menuStatus }) => {
 	
 				<RightSide>
 					{!login ? (
-						<LinkContainer onClick={openDialog}>
-							<LinkSpan>Entrar</LinkSpan>
-							<LinkIcon style={{marginLeft: 9}} src={icACC}/>
-						</LinkContainer>
+
+						<div className="dropdown">
+							<LinkSpan  to="#" className="dropbtn">Entrar</LinkSpan>
+						 	<LinkIcon src={icACC}/>
+							<div className="dropdown-content">
+								<Button onClick={openDialog}>Entrar</Button>
+								<LinkSpan onClick={openDialogSignUp} to="#">Não tem uma conta?</LinkSpan>
+							</div>
+						</div>
 					) : (
 
-						<div style={{display: 'flex'}}>
-							<LinkContainer onClick={() => {popupStatus({name: 'editData'})}}>
-								<LinkSpan>Meus Dados</LinkSpan>
-							</LinkContainer>
-
-							<LinkContainer to="/orders">
-								<LinkSpan>Meus Pedidos</LinkSpan>
-							</LinkContainer>
-						</div>
+						<div className="dropdown">
+								<LinkSpan className="dropbtn">{login.split(" ")[0]}</LinkSpan>
+								<div className="dropdown-content">
+									<LinkSpan to="#" onClick={() => {popupStatus({name: 'editData'})}}>Meus dados</LinkSpan>
+									<LinkSpan to="/orders">Meus pedidos</LinkSpan>
+									<LinkSpan to="#" onClick={logout}>Sair da conta</LinkSpan>
+								</div>
+							</div>
 						
 					)}
 					
