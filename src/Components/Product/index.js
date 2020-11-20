@@ -50,7 +50,7 @@ const Product = ({info, cart, addToCart, removeFromCart}) => {
 					addAndRefresh={addAndRefresh}
 					removeAndRefresh={removeAndRefresh}/>
         <AddCartButtonContainer>
-          {qnt && <AddedText>Adicionado!</AddedText>}
+          {qnt > 0 && <AddedText>Adicionado!</AddedText>}
           <Button onClick={() => {addAndRefresh()}} bg="#0466B9">
             {!qnt ? 'Adicionar ao carrinho' : 'Adicionar mais'}
           </Button>

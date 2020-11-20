@@ -74,7 +74,7 @@ function SideMenu({categories, open, menuStatus, history, logout }) {
                   <Category onClick={redirectAbout}>Sobre a empresa</Category>
                   <div style={{ display: 'flex' }}>
                     <Icon src={icWhats}/>
-                    <Whatsapp>Atendimento via WhatsApp</Whatsapp>
+                    <Whatsapp href="https://api.whatsapp.com/send?phone=5563991047876">Atendimento via WhatsApp</Whatsapp>
                   </div>
                   {/* <Category onClick={signOut}>Sair da Conta</Category> */}
                 </Footer>

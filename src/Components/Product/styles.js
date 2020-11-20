@@ -13,6 +13,7 @@ export const Container = styled.div`
 
 export const CardContent = styled.div`
   padding: 20px;
+	width: 100%;
 `
 
 export const Name = styled(Link)`

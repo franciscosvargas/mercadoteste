@@ -98,7 +98,7 @@ export const Category = styled(Link)`
   }
 `
 
-export const Whatsapp = styled(Link)`
+export const Whatsapp = styled.a`
 	color: #0466B9;
 	font-size: 18px;
   margin-left: 10px;
