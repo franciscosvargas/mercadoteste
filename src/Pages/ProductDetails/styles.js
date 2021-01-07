@@ -26,12 +26,15 @@ export const Content = styled.div`
 
 export const Box = styled.div`
 	margin-top: 20px;
+	max-width: 50%;
 	flex-grow: 1;
 	padding: 30px;
 	background: #fff;
 	box-shadow: 0px 3px 6px #00000029;
 	border-radius: 6px;
 	display: flex;
+	
+	
 
 	@media (max-width: 1250px) {
 		margin-right: 0px !important;
@@ -42,11 +45,11 @@ export const Box = styled.div`
 	}
 
 	@media (max-width: 950px) {
-		width: 60%;
+		max-width: 48%;
 	}
 
-	@media (max-width: 650px) {
-		width: 90%;
+	@media (max-width: 800px) {
+		max-width: 100%;
 	}
 `
 
@@ -72,11 +75,8 @@ export const Horizontal = styled.div`
 	margin-top: auto;
 	display: flex;
 	align-items: center;
-	
+	margin-top: 50px;
 
-	@media (max-width: 950px) {
-		margin-top: 50px;
-	}
 `
 
 export const ButtonsContainer = styled.div`

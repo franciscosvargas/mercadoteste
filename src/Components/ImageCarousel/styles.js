@@ -63,15 +63,17 @@ export const ArrowRight = styled(ArrowLeft).attrs({
 export const ImageSelector = styled.div`
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   width: 100%;
   margin-top: 50px;
   
   img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border: 2px solid #0466B9;
     border-radius: 10px;
     cursor: pointer;
+    margin-top: 10px;
 
     opacity: 0.8;
 

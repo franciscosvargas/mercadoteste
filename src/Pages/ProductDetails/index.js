@@ -71,7 +71,7 @@ function ProductDetails({history, addToCart, removeFromCart, cart}) {
 					<ImageCarousel images={product.images}/>
 				</Box>
 
-				<Box style={{flexDirection: 'column'}}>
+				<Box style={{flexDirection: 'column', height: '90%'}}>
 					<Name>{product.name}</Name>
 					<Horizontal>
 						<Price>Por: {product.priceFormated}</Price>
