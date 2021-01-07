@@ -72,7 +72,7 @@ function Orders({history, popupStatus, logout,  login}) {
 											<Column>
 												<Name style={{margin: '0 !imporant'}}>{product.name}</Name>
 											</Column>
-											<Column>R$ {product.price}</Column>
+											<Column>{product.price}</Column>
 											<Column>{product.und} UND.</Column>
 										</Line>
 									))}

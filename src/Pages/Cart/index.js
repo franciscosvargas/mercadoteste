@@ -177,7 +177,7 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 												</Product>
 												
 											</Column>
-											<Column>R$ {product.price}</Column>
+											<Column>{product.price}</Column>
 											<Column>{product.qnt} UND.</Column>
 											<ColumnRemove onClick={() => { removeFromCart(product, 1)}} >Excluir</ColumnRemove>
 										</Line>

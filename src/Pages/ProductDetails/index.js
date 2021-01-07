@@ -74,7 +74,7 @@ function ProductDetails({history, addToCart, removeFromCart, cart}) {
 				<Box style={{flexDirection: 'column'}}>
 					<Name>{product.name}</Name>
 					<Horizontal>
-						<Price>Por: R$ {product.price}</Price>
+						<Price>Por: {product.price}</Price>
 						<Right>
 							<ButtonCart onClick={() => {removeAndRefresh()}}>-</ButtonCart>
 							<SpanQnt>{!qnt ? '0' : qnt}</SpanQnt>
