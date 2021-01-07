@@ -25,9 +25,10 @@ export const Name = styled(Link)`
   margin-bottom: 24px;
 `
 
-export const Image = styled.img`
+export const ProductImage = styled.img`
 	margin-top: 18px;
-  width: 100%;
+	max-width: 200px;
+	height: 250px;
   flex-grow: 1;
 `
 

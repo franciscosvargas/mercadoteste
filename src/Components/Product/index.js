@@ -2,22 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import QuantitySelector from '../QuantitySelector'
+import { Link } from 'react-router-dom'
+
+
 import {
   AddedText,
   AddCartButtonContainer,
   Container,
   CardContent,
   Name,
-  Image,
+  ProductImage,
   Button
 } from './styles';
 
 import * as actions from '../../store/actions/cart';
 
 const Product = ({info, cart, addToCart, removeFromCart}) => {
-	const [qnt, setQnt] = useState(false)
+	const [ qnt, setQnt ] = useState(false)
+	const [ image, setImage ] = useState(info.images[0])
 
 	useEffect(() => {
+		console.log(info)
 		getProductData()
 	}, [])
 
@@ -41,7 +46,14 @@ const Product = ({info, cart, addToCart, removeFromCart}) => {
 
 	return (
 		<Container>
-			<Image src={info.url}/>
+			<Link to={`/product/${info.type}/${info.id}`}>
+				<ProductImage
+					src={image} 
+					onMouseEnter={() => setImage(info.images[1] || info.images[0])} 
+					onMouseLeave={() => setImage(info.images[0])}
+					/>
+			</Link>
+			
       <CardContent>
         <Name to={`/product/${info.type}/${info.id}`}>{info.name}</Name>
 				<QuantitySelector 

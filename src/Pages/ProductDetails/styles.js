@@ -15,7 +15,7 @@ export const Content = styled.div`
 
 
 	@media (max-width: 950px) {
-		padding: 20px 50px 20px 50px;
+		padding: 20px;
 		
 	}
 
@@ -38,7 +38,7 @@ export const Box = styled.div`
 	}
 
 	@media (min-width: 950px) {
-		margin-bottom: 100px;
+		margin-bottom: 20px;
 	}
 
 	@media (max-width: 950px) {
@@ -72,6 +72,7 @@ export const Horizontal = styled.div`
 	margin-top: auto;
 	display: flex;
 	align-items: center;
+	
 
 	@media (max-width: 950px) {
 		margin-top: 50px;

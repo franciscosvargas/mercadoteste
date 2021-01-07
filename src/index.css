@@ -44,6 +44,12 @@ body {
 }
 
 
+@media (max-width: 700px) {
+	.dropdown {
+		display: none !important;
+	}
+}
+
 @media (max-width: 500px) {
 	.login-input {
 		min-width: 300px;
@@ -230,4 +236,13 @@ body {
 
 .dropdown:hover .dropbtn {
 	opacity: 0.8;
+}
+
+.product-image {
+	display: none;
+	transition: all 1000ms;
+}
+
+.product-image:hover {
+	display: flex;
 }

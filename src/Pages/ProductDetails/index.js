@@ -24,12 +24,14 @@ import {
 
 import Top from '../../Components/Top';
 import Footer from '../../Components/Footer';
+import ImageCarousel from '../../Components/ImageCarousel'
 
 import api from '../../services/api';
 
 function ProductDetails({history, addToCart, removeFromCart, cart}) {
 	const [product, setProduct] = useState({})
 	const [qnt, setQnt] = useState(false)
+
 	const { id, category } = useParams()
 
 	useEffect(() => {
@@ -38,6 +40,7 @@ function ProductDetails({history, addToCart, removeFromCart, cart}) {
 
 	const getProductData = async () => {
 		const { data } = await api.get(`/product/${category}/${id}`)
+		console.log('individual', data)
 
 		setProduct(data)
 
@@ -65,7 +68,7 @@ function ProductDetails({history, addToCart, removeFromCart, cart}) {
 			<Top history={history}/>
 			<Content>
 				<Box style={{justifyContent: 'center', marginRight: 32}}>
-					<Image src={product.url}/>
+					<ImageCarousel images={product.images}/>
 				</Box>
 
 				<Box style={{flexDirection: 'column'}}>
