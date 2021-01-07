@@ -19,7 +19,7 @@ import * as actions from '../../store/actions/cart';
 
 const Product = ({info, cart, addToCart, removeFromCart}) => {
 	const [ qnt, setQnt ] = useState(false)
-	const [ image, setImage ] = useState(info.images[0])
+	const [ image, setImage ] = useState((info.images && info.images[0]) || null)
 
 	useEffect(() => {
 		console.log(info)
@@ -57,7 +57,7 @@ const Product = ({info, cart, addToCart, removeFromCart}) => {
       <CardContent>
         <Name to={`/product/${info.type}/${info.id}`}>{info.name}</Name>
 				<QuantitySelector 
-					price={info.price} 
+					price={info.priceFormated} 
 					qnt={qnt || 0}
 					addAndRefresh={addAndRefresh}
 					removeAndRefresh={removeAndRefresh}/>

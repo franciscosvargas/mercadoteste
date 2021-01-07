@@ -1,13 +1,14 @@
   
-export const addToCart = ({id, name, price, url, type }) => ({
+export const addToCart = ({id, name, price, type, images, priceFormated }) => ({
     type: 'ADD_TO_CART',
     payload: {
 		id,
 		name, 
 		price, 
-		img: url,
+		images,
 		qnt: 1,
-		type
+		type,
+		priceFormated
 	}
 })
 

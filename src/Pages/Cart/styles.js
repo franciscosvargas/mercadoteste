@@ -134,6 +134,8 @@ export const Button = styled.button`
 	font-size: 18px;
 	background: ${props => props.bg};
 	margin-top: 20px;
+	margin-left: auto;
+	cursor: pointer;
 `
 
 export const ButtonOutlined = styled.button`

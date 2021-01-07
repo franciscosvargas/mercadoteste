@@ -23,6 +23,8 @@ import Slider from '../../Components/Slider';
 import api from '../../services/api';
 import { Bottom } from '../../Components/TopBar/styles';
 
+import Calcula from '../../services/calcula'
+
 function useQuery() {
 	return new URLSearchParams(useLocation().search);
 }
@@ -72,7 +74,7 @@ function Orders({history, popupStatus, logout,  login}) {
 											<Column>
 												<Name style={{margin: '0 !imporant'}}>{product.name}</Name>
 											</Column>
-											<Column>{product.price}</Column>
+											<Column>{Calcula.formatMoney(product.price, "R$ ", 2, ".", ",")}</Column>
 											<Column>{product.und} UND.</Column>
 										</Line>
 									))}
@@ -128,18 +130,18 @@ function Orders({history, popupStatus, logout,  login}) {
 						<Box className="prices">
 							<Value>
 								<SectionTitle>Custo de Entrega</SectionTitle>
-								<Info style={{marginLeft: 'auto'}}>R$ {order.priceDelivery}</Info>
+								<Info style={{marginLeft: 'auto'}}>{Calcula.formatMoney(order.priceDelivery, "R$ ", 2, ".", ",")}</Info>
 
 							</Value>
 
 							<Value>
 								<SectionTitle>Valor da compra</SectionTitle>
-								<Info style={{marginLeft: 'auto'}}>R$ {order.priceProducts}</Info>
+								<Info style={{marginLeft: 'auto'}}>{Calcula.formatMoney(order.priceProducts, "R$ ", 2, ".", ",")}</Info>
 							</Value>
 
 							<Value style={{borderTop: '1px solid rgba(0,0,0,0.2)', paddingTop: 20}}>
 								<SectionTitle>Valor TOTAL</SectionTitle>
-								<SectionTitle style={{marginLeft: 'auto'}}>R$ {order.priceTotal}</SectionTitle>
+								<SectionTitle style={{marginLeft: 'auto'}}>{Calcula.formatMoney(order.priceTotal, "R$ ", 2, ".", ",")}</SectionTitle>
 							</Value>
 							
 						</Box>

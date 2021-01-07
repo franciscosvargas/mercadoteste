@@ -38,6 +38,7 @@ import Input from '../../Components/Input';
 import icPlay from '../../assets/ic_play.png'
 
 import api from '../../services/api'
+import Calcula from '../../services/calcula'
 
 function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, logout}) {
 	const [price, setPrice] = useState(0)
@@ -170,14 +171,15 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 
 									{cart.map((product, index) => (
 										<Line>
+											{console.log(product)}
 											<Column>
 												<Product to={`/product/${product.type}/${product.id}`}>
-													<Image src={product.img}/> 
+													<Image src={product.images[0]}/> 
 													<Name>{product.name}</Name>
 												</Product>
 												
 											</Column>
-											<Column>{product.price}</Column>
+											<Column>{product.priceFormated}</Column>
 											<Column>{product.qnt} UND.</Column>
 											<ColumnRemove onClick={() => { removeFromCart(product, 1)}} >Excluir</ColumnRemove>
 										</Line>
@@ -192,7 +194,7 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 							<Section>
 								<SectionTitle>Valor da compra</SectionTitle>
 								<Span>*Taxas se aplicam de acordo com o método de pagamento</Span>
-								<SectionTitle>R$ {price.toFixed(2)}</SectionTitle>
+								<SectionTitle>{Calcula.formatMoney(price, "R$ ", 2, ".", ",")}</SectionTitle>
 							</Section>
 								
 							{/* Payment Methods */}
@@ -262,7 +264,7 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 									</Box>
 								)}
 
-								{(newAddress || !addresses)&& (
+								{(newAddress || !addresses) && (
 									<Box>
 										<Section>
 											<SectionTitle>Novo Endereço</SectionTitle>
@@ -327,7 +329,7 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 												
 												<div>
 													<Button type="submit" style={{marginRight: 20}} bg="#0466B9">Adicionar</Button>
-													<Button onClick={() => {setNewAddress(false)}}  bg="#59ABF1">Cancelar</Button>
+													<Button type="button" onClick={() => {setNewAddress(false)}}  bg="#59ABF1">Cancelar</Button>
 												</div>
 												
 											</Form>
