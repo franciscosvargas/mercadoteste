@@ -44,6 +44,7 @@ function About({history, popupStatus, logout,  login}) {
 			<Top history={history}/>
 
 					<Content>
+						<button onClick={history.goBack} className="btnVoltar">{"< Voltar"}</button>
 						{company && (
 							<Box style={{width: 'calc(100% - 60px)'}}>
 								<Section style={{width: '50% !important', flexGrow: '0 !important'}}>

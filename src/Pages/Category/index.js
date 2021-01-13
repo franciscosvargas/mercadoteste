@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import * as actions from '../../store/actions/products';
 
-import { Container, Name } from './styles';
+import { Container, Name, Content } from './styles';
 
 import Top from '../../Components/Top';
 import ProductsSession from '../../Components/ProductsSession';
@@ -31,7 +31,10 @@ function Category({refreshProductList, history}) {
 	return (
 		<Container>
 			<Top history={history} />
-			<Name>{name}</Name>
+			<Content>
+				<button onClick={history.goBack} className="btnVoltar">{"< Voltar"}</button>
+				<Name>{name}</Name>
+			</Content>
 			<ProductsSession history={history}/>
 			<Footer />
 		</Container>

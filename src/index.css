@@ -246,3 +246,10 @@ body {
 .product-image:hover {
 	display: flex;
 }
+
+.btnVoltar {
+	color: #0466B9;
+	font-weight: bold;
+	font-size: 20px;
+	cursor: pointer;
+}

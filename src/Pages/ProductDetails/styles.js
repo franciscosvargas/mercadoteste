@@ -7,11 +7,14 @@ export const Container = styled.div`
 
 export const Content = styled.div`
 	width: calc(100%-260px);
-	
-	display: flex;
-	justify-content: space-between;
 	padding: 30px 130px 0px 130px;
-	flex-wrap: wrap;
+
+	section {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
 
 
 	@media (max-width: 950px) {

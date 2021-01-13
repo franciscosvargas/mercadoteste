@@ -34,9 +34,11 @@ function Orders({history, cart, removeFromCart, popupStatus, login, clearCart, l
 
 		const {data} = await api.get(`/l/orders/${cpf}`)
 
+		console.log('data', data)
+
 		if(data.error) {
 			logout()
-			return popupStatus({name: 'loginS'})
+			return popupStatus({name: 'login'})
 		}
 
 		setOrders(data)
@@ -51,12 +53,14 @@ function Orders({history, cart, removeFromCart, popupStatus, login, clearCart, l
 		<Container>
 			<Top history={history}/>
 
-				{orders && (
+			{orders && (
 					<Content>
+						<button onClick={history.goBack} className="btnVoltar">{"< Voltar"}</button>
+
 						<Box style={{width: 'calc(100% - 60px)'}}>
 							<Section style={{border: 'none'}}>
 								<SectionTitle>Pedidos em Aberto</SectionTitle>
-								{!orders.open.length ? (
+								{orders.open.length == 0 ? (
 									<Alert>Não há pedidos em aberto</Alert>
 								) : (
 									<OrderList>
@@ -77,7 +81,7 @@ function Orders({history, cart, removeFromCart, popupStatus, login, clearCart, l
 							<Section style={{border: 'none'}}>
 								<SectionTitle>Pedidos Finalizados</SectionTitle>
 								
-								{!orders.finished.length ? (
+								{orders.finished.length == 0 ? (
 									<Alert>Não há pedidos finalizados</Alert>
 								) : (
 									<div>

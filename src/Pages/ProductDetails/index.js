@@ -66,33 +66,42 @@ function ProductDetails({history, addToCart, removeFromCart, cart}) {
 	return (
 		<Container>
 			<Top history={history}/>
+			
 			<Content>
-				<Box style={{justifyContent: 'center', marginRight: 32}}>
-					<ImageCarousel images={product.images}/>
-				</Box>
 
-				<Box style={{flexDirection: 'column', height: '90%'}}>
-					<Name>{product.name}</Name>
-					<Horizontal>
-						<Price>Por: {product.priceFormated}</Price>
-						<Right>
-							<ButtonCart onClick={() => {removeAndRefresh()}}>-</ButtonCart>
-							<SpanQnt>{!qnt ? '0' : qnt}</SpanQnt>
-							<ButtonCart onClick={() => {addAndRefresh()}}>+</ButtonCart>
-						</Right>
-					</Horizontal>
+				<button onClick={history.goBack} className="btnVoltar">{"< Voltar"}</button>
+				
+				<section>
+					<Box style={{justifyContent: 'center', marginRight: 32}}>
+						<ImageCarousel images={product.images}/>
+					</Box>
 
-          <ButtonsContainer>
-            {qnt > 0 && <AddedText>Adicionado!</AddedText>}
-            <Button onClick={() => {addAndRefresh()}} bg="#0466B9" qnt={qnt}>
-              {!qnt ? 'Adicionar ao Carrinho': 'Adicionar mais'}
-            </Button>
-          </ButtonsContainer>
-					
-					<SecondaryButton onClick={() => history.push(`/category/${product.type}`)}>
-            Ver mais produtos
-          </SecondaryButton>
-				</Box>
+					<Box style={{flexDirection: 'column', height: '90%'}}>
+						<Name>{product.name}</Name>
+						<Horizontal>
+							<Price>Por: {product.priceFormated}</Price>
+							<Right>
+								<ButtonCart onClick={() => {removeAndRefresh()}}>-</ButtonCart>
+								<SpanQnt>{!qnt ? '0' : qnt}</SpanQnt>
+								<ButtonCart onClick={() => {addAndRefresh()}}>+</ButtonCart>
+							</Right>
+						</Horizontal>
+
+						<ButtonsContainer>
+							{qnt > 0 && <AddedText>Adicionado!</AddedText>}
+							<Button onClick={() => {addAndRefresh()}} bg="#0466B9" qnt={qnt}>
+								{!qnt ? 'Adicionar ao Carrinho': 'Adicionar mais'}
+							</Button>
+						</ButtonsContainer>
+						
+						<SecondaryButton onClick={() => history.push(`/category/${product.type}`)}>
+							Ver mais produtos
+						</SecondaryButton>
+					</Box>
+				</section>
+				
+			
+				
 			</Content>
 			<Footer />		
 		</Container>

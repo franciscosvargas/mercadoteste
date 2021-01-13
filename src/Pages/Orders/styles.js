@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Content = styled.div`
-	padding: 0px 130px 30px 130px;
+	padding: 30px 130px 30px 130px;
 	width: calc(100% - 60px);
 
 	@media (min-width: 950px) {

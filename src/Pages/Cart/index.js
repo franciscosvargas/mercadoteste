@@ -157,7 +157,8 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 
 				{cart.length ? (
 					<Content>
-
+						
+						<button onClick={history.goBack} className="btnVoltar">{"< Voltar"}</button>
 						{/* List of products in cart */}
 						<Box>
 							<List>
@@ -386,10 +387,11 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 					</Content>
 
 				) : (
-					<Content style={{height: 'calc(100% - 261px)'}}>
+					<Content>
+						<button onClick={history.goBack} className="btnVoltar">{"< Voltar"}</button>
 						<Box>
-						<Alert>Seu carrinho está vazio...</Alert>
-					</Box>
+							<Alert>Seu carrinho está vazio...</Alert>
+						</Box>
 
 					</Content>
 				)}
