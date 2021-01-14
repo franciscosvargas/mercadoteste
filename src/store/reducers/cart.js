@@ -11,7 +11,6 @@ export default function login(state = INITIAL_STATE, action) {
 			}
 
 			return [...state]
-			break;
 
 		case 'REMOVE_FROM_CART':
 			if(action.payload.qnt > 1) {
@@ -21,13 +20,11 @@ export default function login(state = INITIAL_STATE, action) {
 				const newState = state.filter(product => product.id !== action.payload.id)
 				return [...newState]
 			}
-			break;
 
 		case 'CLEAR_CART':
 			return [];
-			break;
 		
-        default:
-            return state;
+		default:
+				return state;
     }
 }

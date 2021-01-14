@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -22,7 +23,6 @@ const Product = ({info, cart, addToCart, removeFromCart}) => {
 	const [ image, setImage ] = useState((info.images && info.images[0]) || null)
 
 	useEffect(() => {
-		console.log(info)
 		getProductData()
 	}, [])
 

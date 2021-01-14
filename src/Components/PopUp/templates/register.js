@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import { Form } from '@unform/web';
-import { Scope } from '@unform/core';
 
 import * as actions from '../../../store/actions/login'
 
@@ -15,7 +14,6 @@ import {
 	FormButton,
 	Error,
 	Header,
-	InputSpan
 
  } from './styles';
 

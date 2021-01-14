@@ -9,7 +9,6 @@ import { Container } from './styles';
 import Top from '../../Components/Top';
 import ProductsSession from '../../Components/ProductsSession';
 import Footer from '../../Components/Footer';
-import PopUp from '../../Components/PopUp';
 
 
 import api from '../../services/api';

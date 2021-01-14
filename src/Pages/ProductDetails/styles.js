@@ -104,7 +104,7 @@ export const Price = styled.span`
 
 export const Button = styled.button`
 	align-self: flex-end;
-	width: ${props => props.qnt == 0 && '100%'};
+	width: ${props => props.qnt === 0 && '100%'};
   padding: 10px 42px;
   font-weight: bold;
 	color: #fff;

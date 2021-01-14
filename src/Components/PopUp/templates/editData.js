@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -11,11 +11,9 @@ import {
 	Container, 
 	ButtonClose, 
 	Title,
-	TextButton, 
 	FormButton,
 	Error,
 	Header, 
-	InputSpan
  } from './styles';
 
 import Input from '../../Input'

@@ -26,13 +26,11 @@ import {
 	ButtonOutlined,
 	Address,
 	AddressSpan,
-	InputSpan
 
 } from './styles';
 
 import Top from '../../Components/Top';
 import Footer from '../../Components/Footer';
-import Slider from '../../Components/Slider';
 import Input from '../../Components/Input';
 
 import icPlay from '../../assets/ic_play.png'
@@ -52,8 +50,7 @@ function Cart({history, cart, removeFromCart, popupStatus, login, clearCart, log
 	useEffect(() => {
 		let value = 0
 		cart.map(product => {
-			 value = value + (product.price * product.qnt)
-			
+			 return value = value + (product.price * product.qnt)	
 		})
 		setPrice(value)
 	}, [cart, addresses])

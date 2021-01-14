@@ -5,7 +5,7 @@ import { Container, Input, InputSpan } from './styles';
 
 export default function InputContainer({ name, span, ...rest }) {
   const inputRef = useRef(null);
-  const { fieldName, defaultValue = '', registerField, error } = useField(name);
+  const { fieldName, defaultValue = '', registerField } = useField(name);
 
   useEffect(() => {
     registerField({

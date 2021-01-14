@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 import { 
   Container, 
@@ -38,7 +38,7 @@ const ImageCarousel = ({images}) => {
           <ImageSelector>
             {
               images.map((image, index) => (
-                <img src={image} onClick={() => {setImage(index)}}/>
+                <img src={image} alt="Imagem do produto" onClick={() => {setImage(index)}}/>
               ))
             }
           </ImageSelector>

@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-use-before-define */
 import React, { useEffect, useState }from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from "react-redux";
@@ -9,7 +11,6 @@ import {
   Container,
   Content,
   Box,
-  Image,
   Name,
   Horizontal,
   Price,

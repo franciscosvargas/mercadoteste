@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { useLocation } from "react-router-dom";
-import { Form } from "@unform/web";
-
-import * as actions from '../../store/actions/cart';
 
 import { 
 	Container,
@@ -18,13 +12,10 @@ import { Content, Section, Info, Value, Whatsapp, Icon  } from './styles'
 
 import Top from '../../Components/Top';
 import Footer from '../../Components/Footer';
-import Slider from '../../Components/Slider';
 
 import api from '../../services/api';
 
 import icWhats from '../../assets/ic_whats_blue.svg'
-
-import { Bottom } from '../../Components/TopBar/styles';
 
 function About({history, popupStatus, logout,  login}) {
 	const [company, setCompany] = useState(false)

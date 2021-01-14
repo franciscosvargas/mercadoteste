@@ -1,9 +1,9 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import { Form } from '@unform/web';
-import * as actions from '../../../store/actions/login'
+import * as actions from '../../../store/actions/login';
 
 import { 
 	Container, 
@@ -13,18 +13,16 @@ import {
 	FormButton,
 	Error,
 	Header, 
-	InputSpan
 
  } from './styles';
 
-import Input from '../../Input'
+import Input from '../../Input';
 import icClose from '../../../assets/ic_cancel.svg';
 
 import api from '../../../services/api'
 
 const Login = ({info, close, loginSuccess, popupStatus, redirectPopup}) => {
 	const [error, setError] = useState(false)
-	const ref = useRef(null)
 
 	const signin = async (info) => {
 		const { data } = await api.post('/auth', info)

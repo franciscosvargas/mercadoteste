@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import './index.css';
-import * as serviceWorker from './serviceWorker';
 
 import { Provider } from 'react-redux';
 import  { store, persistor }  from './store';

@@ -1,8 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { useLocation } from "react-router-dom";
-import { Form } from "@unform/web";
 
 import * as actions from '../../store/actions/cart';
 
@@ -14,14 +14,12 @@ import {
 						
 } from '../Cart/styles';
 
-import { Content, Order, Section, Title,  Column, Line, List, Status, Name, Info, Value  } from './styles'
+import { Content, Section, Title,  Column, Line, List, Status, Name, Info, Value  } from './styles'
 
 import Top from '../../Components/Top';
 import Footer from '../../Components/Footer';
-import Slider from '../../Components/Slider';
 
 import api from '../../services/api';
-import { Bottom } from '../../Components/TopBar/styles';
 
 import Calcula from '../../services/calcula'
 

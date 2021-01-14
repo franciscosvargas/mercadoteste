@@ -44,11 +44,6 @@ function SideMenu({categories, open, menuStatus, history, logout }) {
 		history.push(`/about`)
 	}
 
-	const signOut = () => {
-		console.log('a')
-		logout()
-		menuStatus()
-	}
 	
 	return (
 		<SwitchTransition>

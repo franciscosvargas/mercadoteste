@@ -1,8 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Form } from "@unform/web";
-
 import * as actions from '../../store/actions/cart';
 
 import { 
@@ -17,7 +16,6 @@ import { OrderList, Order, TitleOrder, DateOrder, Content} from './styles'
 
 import Top from '../../Components/Top';
 import Footer from '../../Components/Footer';
-import Slider from '../../Components/Slider';
 
 import api from '../../services/api'
 
@@ -45,10 +43,6 @@ function Orders({history, cart, removeFromCart, popupStatus, login, clearCart, l
 
 	}
 
-	const redirect = () => {
-		history.push('/order/aaaaaa')
-	}
-
 	return (
 		<Container>
 			<Top history={history}/>
@@ -60,7 +54,7 @@ function Orders({history, cart, removeFromCart, popupStatus, login, clearCart, l
 						<Box style={{width: 'calc(100% - 60px)'}}>
 							<Section style={{border: 'none'}}>
 								<SectionTitle>Pedidos em Aberto</SectionTitle>
-								{orders.open.length == 0 ? (
+								{orders.open.length === 0 ? (
 									<Alert>Não há pedidos em aberto</Alert>
 								) : (
 									<OrderList>
@@ -81,7 +75,7 @@ function Orders({history, cart, removeFromCart, popupStatus, login, clearCart, l
 							<Section style={{border: 'none'}}>
 								<SectionTitle>Pedidos Finalizados</SectionTitle>
 								
-								{orders.finished.length == 0 ? (
+								{orders.finished.length === 0 ? (
 									<Alert>Não há pedidos finalizados</Alert>
 								) : (
 									<div>
