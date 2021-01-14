@@ -34,13 +34,13 @@ jobs:
           export_default_credentials: true
       
       - name: Upload files to bucket
-        run: gsutil -n rsync -R ./build gs://"$BUCKET"/mercadoteste
+        run: gsutil -m rsync -R ./build gs://"$BUCKET"/mercadoteste
       
       - name: Allow AllUsers
-        run: gsutil -n acl ch -R -u AllUsers:R gs://"$BUCKET"/mercadoteste
+        run: gsutil -m acl ch -R -u AllUsers:R gs://"$BUCKET"/mercadoteste
       
       - name: Set Cache-Control
-        run: gsutil -n setmeta -h "Cache-Control:public, max-age=15768000" gs://"$BUCKET"/mercadoteste/**/*.{png,svg,css,js}
+        run: gsutil -m setmeta -h "Cache-Control:public, max-age=15768000" gs://"$BUCKET"/mercadoteste/**/*.{png,svg,css,js}
         
       - name: Set Cache-Control
         run: gsutil setmeta -h "Cache-Control:nocache, no-store" gs://"$BUCKET"/mercadoteste/index.html
